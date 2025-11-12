@@ -1,0 +1,34 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-inline: 20px;
+}
+
+.logo {
+  margin-block: 14px;
+  margin-left: 20px;
+}
+
+.bundle {
+  display: flex;
+  margin-inline: 10px;
+}
+
+.search {
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-right: 21px;
+}
+
+button {
+  color: white;
+  background-color: black;
+  border-radius: 15px;
+  padding-inline: 13px;
+  padding-block: 5px;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 15px;
+  text-align: center;
+}
