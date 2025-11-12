@@ -1,0 +1,39 @@
+.main-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.banner {
+  text-align: center;
+  background-color: darkmagenta;
+  color: #ffffff;
+
+  .book-title {
+    font-size: 22px;
+    margin-top: 55px;
+  }
+
+  .book-writer {
+    font-size: 17px;
+    margin-bottom: 54px;
+  }
+
+  svg {
+    margin-top: 12px;
+    margin-bottom: 118px;
+  }
+}
+
+.brunch-list {
+  display: grid;
+  align-items: center;
+
+  book-information {
+    grid-column: 1;
+  }
+
+  svg {
+    grid-column: 2;
+    justify-content: end;
+  }
+}
