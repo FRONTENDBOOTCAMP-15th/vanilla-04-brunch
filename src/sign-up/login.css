@@ -1,8 +1,19 @@
 /* 로그인 페이지 */
-.login {
-  max-width: 360px;
+form {
   display: flex;
   flex-direction: column;
+}
+
+.login {
+  margin-inline: 20px;
+  margin-top: 72px;
+
+  .login-banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
   h3 {
     font-weight: 500;
@@ -16,22 +27,26 @@
 
 /* 이메일, 비밀번호 input */
 .login-input {
-  position: relative;
-  display: inline-flex;
-
   input {
-    border: none;
-    border-bottom: 1px solid #ececec;
-    position: absolute;
-    inset-inline-start: 0;
-    inset-block-start: 0;
-    appearance: none;
+    inline-size: 100%;
+    block-size: 30px;
+    border: 0;
+    border-bottom: 1px solid #bcc3c7;
+    font-size: 15px;
   }
 
   label {
-    display: inline-flex;
-    flex-wrap: row nowrap;
-    align-items: center;
+    display: none;
+  }
+
+  .error-message {
+    color: red;
+    font-size: 12px;
+    visibility: hidden;
+  }
+
+  input:user-invalid + .error-message {
+    visibility: visible;
   }
 }
 
@@ -39,13 +54,12 @@
 .check-box {
   position: relative;
   display: inline-flex;
-  margin-block: 30px;
+  margin-bottom: 30px;
 
   input {
     position: absolute;
     inset-inline-start: 0;
     inset-block-start: 0;
-    margin: 0;
     inline-size: 20px;
     block-size: 20px;
     appearance: none;
@@ -56,17 +70,53 @@
     display: inline-flex;
     flex-flow: row nowrap;
     align-items: center;
-    column-gap: 8px;
   }
 
   &.bg-icon {
     label {
-      background-image: url(/src/sign-up/img/uncheck.png) no-repeat;
-      padding-inline-start: 20px;
+      background-image: url(/src/sign-up/img/uncheck.png);
+
+      /* 백그라운드 이미지 반복 여부 */
+      background-repeat: no-repeat;
+      padding-inline-start: 28px;
     }
 
     input:checked + label {
       background-image: url(/src/sign-up/img/check.png);
     }
+  }
+}
+
+/* 버튼 */
+
+.btn {
+  display: inline-flex;
+  flex-direction: column;
+
+  button {
+    block-size: 50px;
+    margin-block: 6px;
+    border-radius: 7px;
+  }
+
+  .login-btn {
+    color: white;
+    background-color: #aaaaaa;
+    border: none;
+  }
+
+  .login-btn:hover {
+    background-color: #00c6be;
+  }
+
+  .sign-up-btn {
+    color: #00c6be;
+    background-color: white;
+    border: 1px solid #00c6be;
+  }
+
+  .sign-up-btn:hover {
+    color: white;
+    background-color: #00c6be;
   }
 }
