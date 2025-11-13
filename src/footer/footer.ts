@@ -8,9 +8,9 @@ class FooterComponent extends HTMLElement {
     this.innerHTML = `<div class="footer">
       <div>
         <div class="sns-div">
-          <img class="kakao" src="./img/kakao.png" alt="kakao-sns" />
-          <img class="facebook" src="./img/facebook.png" alt="facebook-sns" />
-          <img class="x" src="./img/x.png" alt="X-sns" />
+          <img class="kakao" src="../footer/img/kakao.png" alt="kakao-sns" />
+          <img class="facebook" src="../footer/img/facebook.png" alt="facebook-sns" />
+          <img class="x" src="../footer/img/x.png" alt="X-sns" />
         </div>
         <div class="p-list">
           <p>이용약관</p>
@@ -21,7 +21,7 @@ class FooterComponent extends HTMLElement {
           <p>운영정책</p>
         </div>
         <div class="footer-title">
-          <img class="logo" src="./img/white_logo.png" alt="로고" />
+          <img class="logo" src="../footer/img/white_logo.png" alt="로고" />
         </div>
       </div>
     </div>`;
