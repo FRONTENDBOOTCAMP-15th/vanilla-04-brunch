@@ -1,5 +1,5 @@
 /* 로그인 페이지 */
-form {
+.login-form {
   display: flex;
   flex-direction: column;
 }
