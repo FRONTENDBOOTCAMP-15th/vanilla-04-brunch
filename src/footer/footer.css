@@ -1,0 +1,40 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  background-color: #333333;
+  color: #959595;
+  font-size: 12px;
+}
+
+.sns-div {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 38.5px 0 17.5px 3.5px;
+  gap: 27px;
+  align-items: flex-start;
+  margin-top: 31px;
+}
+
+.p-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  text-align: center;
+  margin-inline: 37.5px;
+  margin-top: 38.5px;
+
+  p {
+    margin: 3px;
+  }
+}
+
+.course {
+  color: #f8f8f8;
+}
+
+.footer-title {
+  display: flex;
+  justify-content: center;
+  margin-block: 46.5px 31.5px;
+}
