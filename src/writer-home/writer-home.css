@@ -1,3 +1,9 @@
+.writer-container {
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
 /* main 영역 */
 
 main {
@@ -8,11 +14,11 @@ main {
 
 /* 프로필 영역 */
 
-.profile {
+.profile-box {
   display: flex;
   justify-content: space-between; /* 양 끝으로 배치 */
   align-items: center;
-  padding: 140px 16px 16px 16px;
+  padding: 120px 16px 16px 16px;
   box-sizing: border-box;
   position: relative; /* 프로필 사진 절대 위치 지정을 위해 */
 }
@@ -70,9 +76,6 @@ main {
 }
 
 /* 구독 버튼 */
-.profile-btn {
-  margin-top: 25px;
-}
 .profile-btn button {
   background-color: #00c6be;
   color: white;
@@ -87,11 +90,13 @@ main {
 /* 프로필 이미지  */
 
 .profile-image {
+  position: relative;
+  top: -30px;
   width: 60px;
   height: 60px;
   border-radius: 50%;
   object-fit: cover;
-  margin-top: -40px;
+  border: 1px solid #eee;
 }
 
 /* 목록 영역 */

@@ -1,2 +1,5 @@
 @import './a11y.css';
 @import './modern-reset.css';
+@import '../header/header.css';
+@import '../footer/footer.css';
+@import '../board/board-css/navi-bar.css';

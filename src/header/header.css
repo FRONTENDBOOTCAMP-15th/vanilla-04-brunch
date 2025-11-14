@@ -1,14 +1,21 @@
 .header {
-  max-width: 360px;
+  position: fixed;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: 360px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-inline: 20px;
+  padding-inline: 20px;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
 }
 
 .bundle {
   display: flex;
-  margin-inline: 20px;
+  margin-inline-start: 20px;
   margin-block: 14px;
 }
 
@@ -25,7 +32,7 @@
   margin-right: 10px;
 }
 
-button {
+.start-btn {
   color: white;
   background-color: black;
   border-radius: 15px;

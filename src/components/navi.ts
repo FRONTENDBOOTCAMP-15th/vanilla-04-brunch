@@ -10,12 +10,18 @@ class naviComponent extends HTMLElement {
     this.render();
   }
   render() {
-    this.innerHTML = `  <nav>
-          <button><img src="${home}" alt="홈" />홈</button>
-          <button><img src="${search}" alt="검색하기" />발견</button>
-          <button><img src="${write}" alt="글쓰기" />글쓰기</button>
-          <button><img src="${mybox}" alt="내서랍" />내 서랍</button>
-        </nav>`;
+    this.innerHTML = `
+      <div class="navi-space">
+        <h6 class="sr-only">하단 네비게이션 공백</h6>
+      </div>
+      <nav class="navi-bar">
+        <button class="navi-bar-btn"><img src="${home}" alt="홈" />홈</button>
+        <button class="navi-bar-btn"><img src="${search}" alt="검색하기" />발견</button>
+        <button class="navi-bar-btn"><img src="${write}" alt="글쓰기" />글쓰기</button>
+        <button class="navi-bar-btn"><img src="${mybox}" alt="내서랍" />내 서랍</button>
+      </nav>
+    `;
   }
 }
+
 customElements.define('navi-bar', naviComponent);
