@@ -1,6 +1,9 @@
 /* 메인 페이지 */
 .main-page {
+  width: 100%;
   max-width: 360px;
+  margin: 0 auto;
+  padding-block-start: 59px;
 }
 
 /* 배너 */

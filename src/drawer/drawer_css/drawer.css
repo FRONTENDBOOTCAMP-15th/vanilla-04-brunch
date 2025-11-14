@@ -1,7 +1,4 @@
-body {
-  height: 1304px;
-}
-.container {
+.drawer-container {
   max-width: 360px;
   width: 100%;
   margin: 0 auto;

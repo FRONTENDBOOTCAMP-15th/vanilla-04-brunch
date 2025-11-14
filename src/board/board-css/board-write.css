@@ -1,8 +1,7 @@
-body {
-  /* border: 1px solid #ccc; 바깥 테두리 */
-  width: auto;
-  /* height: 918px; */
-  padding-top: 44px;
+.board-container {
+  max-width: 360px;
+  width: 100%;
+  margin: 0 auto;
 }
 header {
   width: 360px;
@@ -33,11 +32,6 @@ main {
   border: none;
   outline: none;
 }
-nav {
-  background: #f8f8f8;
-  padding: 8px;
-  gap: 16px;
-}
 
 .image-container {
   display: flex;
@@ -58,11 +52,6 @@ main {
   outline: none;
   gap: 13px;
 }
-.container {
-  max-width: 360px;
-  width: 100%;
-  margin: 0 auto;
-}
 #title {
   font-size: 24px;
   border-bottom: 1px solid #cccccc;
@@ -80,6 +69,9 @@ textarea {
   &:focus {
     outline: none;
   }
+  &#content {
+    height: 300px;
+  }
 }
 
 #subtitle {
@@ -87,22 +79,4 @@ textarea {
   padding: 26px 0;
   padding-left: 25px;
   border-bottom: 1px solid #cccccc;
-}
-nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 80px;
-  background: #fff;
-  position: fixed;
-  left: 50%;
-  bottom: 0;
-  width: 100%;
-  max-width: 360px;
-  transform: translate(-50%);
-}
-
-nav img {
-  width: 48px;
-  height: 48px;
 }
