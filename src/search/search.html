@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./search.css" />
+    <link rel="stylesheet" href="../common/index.css" />
+  </head>
+  <body>
+    <div class="search-container">
+      <div class="search-header">
+        <h2 class="sr-only">검색 키워드 입력 창</h2>
+
+        <div class="search-form-box">
+          <form class="search-form" action="">
+            <div class="search-input">
+              <label class="sr-only" for="search-input-field">검색어 입력</label>
+              <input id="search-input-field" name="search-input-field" type="text" placeholder="검색어 입력" />
+            </div>
+          </form>
+
+          <button class="search-input-clear-btn" type="button" aria-label="검색어 지우기"></button>
+        </div>
+
+        <ul class="search-tab-list">
+          <li class="search-tab-item">
+            <a class="search-tab-btn active" href="">글</a>
+          </li>
+          <li class="search-tab-item">
+            <a class="search-tab-btn" href="">작가</a>
+          </li>
+        </ul>
+      </div>
+      <!-- search-header -->
+
+      <div class="search-keywords">
+        <h3 class="search-title">추천 작가 키워드</h3>
+        <p class="search-desc">일상의 따뜻한 위로, <span class="point">그림</span> 작가를 만나요</p>
+        <ul class="search-keywords-list">
+          <li class="search-keywords-item">
+            <a href="">한의사</a>
+          </li>
+          <li class="search-keywords-item">
+            <a href="">출간작가</a>
+          </li>
+          <li class="search-keywords-item">
+            <a href="">에세이스트</a>
+          </li>
+          <li class="search-keywords-item">
+            <a href="">에세이스트</a>
+          </li>
+        </ul>
+      </div>
+      <!-- search-keywords -->
+
+      <div class="search-recent">
+        <h3 class="search-title">최근검색어</h3>
+        <ul class="search-recent-list">
+          <li class="search-recent-item">
+            <a href="">사진꿀</a>
+            <button class="search-recent-delete-btn" type="button" aria-label="최근검색어 삭제"></button>
+          </li>
+          <li class="search-recent-item">
+            <a href="">꿀</a>
+            <button class="search-recent-delete-btn" type="button" aria-label="최근검색어 삭제"></button>
+          </li>
+        </ul>
+      </div>
+      <!-- search-recent -->
+
+      <div class="search-result-posts">
+        <div class="search-posts-filter">
+          <h3 class="search-title">글 검색 결과 <span class="search-posts-total">800</span>건</h3>
+          <ul class="search-posts-filter-tab">
+            <li class="search-posts-filter-item active"><a href="">정확도</a></li>
+            <li class="search-posts-filter-item"><a href="">최신</a></li>
+          </ul>
+        </div>
+
+        <div class="search-posts-list">
+          <div class="search-posts-item">
+            <a href="">
+              <strong class="search-posts-title">딸의 정부청사 출장에 부모님이 동행하는 이유</strong>
+              <div class="flex-box">
+                <div class="text-box">
+                  <p class="search-posts-text">분이 많네요, 감사드립니다! 직장인(신입)으로 울릉도에서 근무하며 얻게 된 직장생활에 도움 되는 …</p>
+                  <span class="search-posts-date">Apr 19. 2024</span>
+                  <span class="search-posts-id">
+                    <img src="./images/by.png" alt="by" />
+                    은설 aka꿈꾸는 알
+                  </span>
+                </div>
+                <div class="img-box">
+                  <img src="./images/article-thumbnail-01.png" alt="딸의 정부청사 출장에 부모님이 동행하는 이유" />
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="search-posts-item">
+            <a href="">
+              <strong class="search-posts-title">덴마크의 '<span class="point">꿀</span> 하트' 쿠키, Honninghjerter</strong>
+              <div class="flex-box">
+                <div class="text-box">
+                  <p class="search-posts-text">분이 많네요, 감사드립니다! 직장인(신입)으로 울릉도에서 근무하며 얻게 된 직장생활에 도움 되는 …</p>
+                  <span class="search-posts-date">Apr 19. 2024</span>
+                  <span class="search-posts-id">
+                    <img src="./images/by.png" alt="by" />
+                    은설 aka꿈꾸는 알
+                  </span>
+                </div>
+                <div class="img-box">
+                  <img src="./images/article-thumbnail-02.png" alt="덴마크의 '꿀 하트' 쿠키, Honninghjerter" />
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="search-posts-item">
+            <a href="">
+              <strong class="search-posts-title">꿀 빠는 풍경</strong>
+              <div class="flex-box">
+                <div class="text-box">
+                  <p class="search-posts-text">분이 많네요, 감사드립니다! 직장인(신입)으로 울릉도에서 근무하며 얻게 된 직장생활에 도움 되는 …</p>
+                  <span class="search-posts-date">Apr 19. 2024</span>
+                  <span class="search-posts-id">
+                    <img src="./images/by.png" alt="by" />
+                    은설 aka꿈꾸는 알
+                  </span>
+                </div>
+                <div class="img-box">
+                  <img src="./images/article-thumbnail-03.png" alt="꿀 빠는 풍경" />
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="search-posts-item">
+            <a href="">
+              <strong class="search-posts-title">373) 사진만 봐도 꿀과 윤기가 좌르르, 구움과자 - 롱블랙 3월 28일, 문장채집 no. 373</strong>
+              <div class="flex-box">
+                <div class="text-box">
+                  <p class="search-posts-text">분이 많네요, 감사드립니다! 직장인(신입)으로 울릉도에서 근무하며 얻게 된 직장생활에 도움 되는 …</p>
+                  <span class="search-posts-date">Apr 19. 2024</span>
+                  <span class="search-posts-id">
+                    <img src="./images/by.png" alt="by" />
+                    은설 aka꿈꾸는 알
+                  </span>
+                </div>
+                <div class="img-box">
+                  <img
+                    src="./images/article-thumbnail-04.png"
+                    alt="373) 사진만 봐도 꿀과 윤기가 좌르르, 구움과자
+- 롱블랙 3월 28일, 문장채집 no. 373"
+                  />
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- search-result-posts -->
+
+      <div class="search-result-author">
+        <h3 class="search-title">작가 검색 결과 <span class="search-author-total">32</span>건</h3>
+        <div class="search-author-list">
+          <div class="search-author-item">
+            <div class="search-author-profile">
+              <a href="">
+                <img src="./images/author-01.png" alt="꿀아빠" />
+              </a>
+            </div>
+            <div class="search-author-text">
+              <strong class="search-author-id"
+                ><a href=""><span class="point">꿀</span>아빠</a></strong
+              >
+              <p class="search-author-desc">두아들 아빠 기록남기기 좋아하는 아빠 고민하는 아 빠입니다</p>
+              <ul class="search-author-keywords">
+                <li class="search-author-keyword"><a href="">여행</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="search-author-item">
+            <div class="search-author-profile">
+              <a href="">
+                <img src="./images/author-02.png" alt="꿀별" />
+              </a>
+            </div>
+            <div class="search-author-text">
+              <strong class="search-author-id"><a href="">꿀별</a></strong>
+              <p class="search-author-desc">글 쓰고 디자인 하는 사람. 마음이 담긴 일을 해요. 하 는 일에 마음을 담아요.</p>
+              <ul class="search-author-keywords">
+                <li class="search-author-keyword"><a href="">콘텐츠</a></li>
+                <li class="search-author-keyword"><a href="">만화</a></li>
+                <li class="search-author-keyword"><a href="">여행</a></li>
+                <li class="search-author-keyword"><a href="">크리에이터</a></li>
+                <li class="search-author-keyword"><a href="">크리에이터</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="search-author-item">
+            <div class="search-author-profile">
+              <a href="">
+                <img src="./images/author-03.png" alt="개발자 꿀" />
+              </a>
+            </div>
+            <div class="search-author-text">
+              <strong class="search-author-id"><a href="">개발자 꿀</a></strong>
+              <p class="search-author-desc">느리게 흘러가는 스톡홀름에 사는 개발자입니다! 🙂 요가를 좋아하고 심심하면 이것저것 써요.</p>
+              <ul class="search-author-keywords">
+                <li class="search-author-keyword"><a href="">해외생활</a></li>
+                <li class="search-author-keyword"><a href="">IT</a></li>
+                <li class="search-author-keyword"><a href="">개발자</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="search-author-item">
+            <div class="search-author-profile">
+              <a href="">
+                <img src="./images/author-04.png" alt="꿀갱" />
+              </a>
+            </div>
+            <div class="search-author-text">
+              <strong class="search-author-id"><a href="">꿀갱</a></strong>
+              <p class="search-author-desc">제 일상에 대한 글입니다.</p>
+              <ul class="search-author-keywords">
+                <li class="search-author-keyword"><a href="">여행</a></li>
+                <li class="search-author-keyword"><a href="">CEO</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- search-result-author -->
+
+      <div class="search-empty">
+        <img src="./images/brunch-icon.png" alt="brunch-icon" />
+        <p>검색 결과가 없습니다.</p>
+      </div>
+      <!-- search-empty -->
+    </div>
+  </body>
+</html>
