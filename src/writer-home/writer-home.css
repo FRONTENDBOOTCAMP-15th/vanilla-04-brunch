@@ -1,0 +1,137 @@
+/* main 영역 */
+
+main {
+  width: 360px;
+  margin: 0 auto; /* 중앙 정렬 */
+  background-color: white;
+}
+
+/* 프로필 영역 */
+
+.profile {
+  display: flex;
+  justify-content: space-between; /* 양 끝으로 배치 */
+  align-items: center;
+  padding: 140px 16px 16px 16px;
+  box-sizing: border-box;
+  position: relative; /* 프로필 사진 절대 위치 지정을 위해 */
+}
+
+/* 프로필 정보 (이름, 직업, 구독자수) */
+.profile-info {
+  display: flex;
+  flex-direction: column; /* 세로로 배치 */
+  gap: 8px;
+}
+
+/* 이름 */
+.profile-name {
+  font-size: 27px;
+  color: #333333;
+  margin-bottom: 4px; /* 직업 간격 */
+}
+
+/* 직업 */
+.profile-job {
+  font-size: 12px;
+  color: #959595;
+  margin-bottom: 12px; /* 구독자 관심작가 간격 */
+}
+
+/* 구독자/관심작가 정보 */
+
+/* 전체 */
+.profile-stats {
+  display: flex; /* 구독자 관심작가 가로로 */
+  gap: 24px;
+  margin-top: auto;
+}
+
+/* 개별 */
+.profile-subscriber,
+.profile-interest {
+  display: flex;
+  flex-direction: column; /* 세로로 배치 */
+  align-items: flex-start; /* 왼쪽 정렬  */
+}
+
+/* 텍스트 */
+.subscriber-label,
+.interest-label {
+  font-size: 12px;
+  color: #959595;
+  margin-bottom: 2px; /* 숫자와의 간격 */
+}
+
+.subscriber-number,
+.interest-number {
+  font-size: 16px;
+  color: #666666;
+}
+
+/* 구독 버튼 */
+.profile-btn {
+  margin-top: 25px;
+}
+.profile-btn button {
+  background-color: #00c6be;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+}
+
+/* 프로필 이미지  */
+
+.profile-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: -40px;
+}
+
+/* 목록 영역 */
+
+.writing-list {
+  padding-top: 20px; /* 프로필 글 목록 사이 간격 */
+}
+
+.writing-box {
+  padding: 16px; /* 각 글 내부 여백 */
+  border-bottom: 1px solid #f0f0f0; /* 구분선 */
+}
+
+.writing-topic {
+  font-size: 12px;
+  color: #00c6be;
+  margin-bottom: 12px;
+}
+
+.writing-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.writing-content {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  /* 말줄임표 처리 만약 지금은 ...을 직접 썼지만 나중에 다른 글이 올라갔을때 대비 */
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* 두 줄 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.writing-meta {
+  font-size: 12px;
+  color: #999;
+}
