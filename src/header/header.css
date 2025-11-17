@@ -1,0 +1,55 @@
+.header {
+  position: fixed;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: 360px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 20px;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.bundle {
+  display: flex;
+  margin-inline-start: 20px;
+  margin-block: 14px;
+}
+
+.logo {
+  width: 120px;
+  height: 22px;
+}
+
+.bell {
+  margin-right: 10px;
+}
+
+.search {
+  margin-right: 10px;
+}
+
+.start-btn {
+  color: white;
+  background-color: black;
+  border-radius: 15px;
+  padding-inline: 13px;
+  padding-block: 5px;
+  font-size: 10px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.profile {
+  margin-left: 21px;
+}
+
+.search,
+.bell,
+.profile {
+  width: 30px;
+  height: 30px;
+}

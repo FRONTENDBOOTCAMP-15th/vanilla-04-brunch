@@ -1,0 +1,82 @@
+.board-container {
+  max-width: 360px;
+  width: 100%;
+  margin: 0 auto;
+}
+header {
+  width: 360px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+  margin: 0 auto;
+}
+header h1 {
+  font-size: 19px;
+  margin: 0;
+  text-align: center;
+}
+header img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  max-width: 100%;
+}
+button {
+  background: transparent;
+  border: 0;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  outline: none;
+}
+
+.image-container {
+  display: flex;
+  height: 84px;
+  background: #f8f8f8;
+  position: fixed;
+  bottom: 80px;
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 360px;
+  padding: 0 22px;
+}
+.image-container button:last-child {
+  margin-left: auto;
+}
+main {
+  border: none;
+  outline: none;
+  gap: 13px;
+}
+#title {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  padding: 12px 0 8px;
+  padding-left: 25px;
+}
+input,
+textarea {
+  width: 100%;
+  border: none;
+  font-size: 20px;
+  padding-left: 25px;
+  padding: 0 0 372px 25px;
+  padding: 26px 25px;
+  &:focus {
+    outline: none;
+  }
+  &#content {
+    height: 300px;
+  }
+}
+
+#subtitle {
+  font-size: 20px;
+  padding: 26px 0;
+  padding-left: 25px;
+  border-bottom: 1px solid #cccccc;
+}

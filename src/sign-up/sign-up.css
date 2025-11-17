@@ -1,0 +1,120 @@
+/* 회원가입 페이지 */
+.sign-up-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.sign-up {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  padding-inline: 20px;
+  padding-block: 58px;
+
+  h3 {
+    text-align: center;
+  }
+}
+
+/* 별명, 이메일, 비밀번호, 비밀번호 확인 입력하는 input */
+.sign-up-input {
+  input {
+    inline-size: 100%;
+    block-size: 40px;
+    border: 0;
+    border-bottom: 1px solid #bcc3c7;
+    font-size: 15px;
+  }
+
+  button {
+    color: #00c6de;
+    font-weight: 500;
+    border: 2px solid #00c6de;
+    background-color: white;
+    border-radius: 20px;
+    padding-inline: 10px;
+    padding-block: 5px;
+  }
+
+  .success-message {
+    color: #00c6de;
+    font-size: 12px;
+  }
+
+  .error-message {
+    color: red;
+    font-size: 12px;
+    /* visibility: hidden; */
+  }
+
+  input:user-invalid + .error-message {
+    visibility: visible;
+  }
+
+  &.bg-icon {
+    label {
+      background: url(/src/sign-up/img/password_off.png) no-repeat;
+      width: 24px;
+      height: 24px;
+    }
+
+    input:checked + label {
+      background-image: url(/src/sign-up/img/password_on.png);
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+.sign-up-information {
+  display: flex;
+  position: relative;
+  justify-content: flex-end;
+  align-items: center;
+
+  label,
+  button {
+    position: absolute;
+  }
+
+  label {
+    font-size: 0;
+  }
+
+  button:hover {
+    background-color: #00c6be;
+    color: white;
+  }
+
+  .password-checkbox {
+    position: absolute;
+    width: 20px;
+    margin-bottom: 10px;
+    display: none;
+  }
+}
+
+/* 회원가입 버튼 */
+.btn {
+  display: inline-flex;
+  flex-direction: column;
+  margin-top: 88px;
+
+  button {
+    block-size: 50px;
+    margin-block: 6px;
+    border-radius: 7px;
+  }
+
+  .sign-up-btn {
+    color: white;
+    background-color: #aaaaaa;
+    border: none;
+  }
+
+  .sign-up-btn:hover {
+    background-color: #00c6be;
+  }
+}
