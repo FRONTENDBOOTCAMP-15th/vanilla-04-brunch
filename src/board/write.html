@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>글쓰기</title>
+    <link rel="stylesheet" href="./board-css/board-write.css" />
+    <link rel="stylesheet" href="../common/index.css" />
+    <script type="module" src="../components/navi.ts"></script>
+  </head>
+  <body>
+    <div class="board-container">
+      <header>
+        <button><img src="./board-img/Icon30px.svg" alt="취소하기" /></button>
+        <h1>글쓰기</h1>
+        <button><img src="./board-img/Icon30px(1).svg" alt="저장하기" /></button>
+      </header>
+      <main>
+        <div>
+          <label for="title"></label>
+          <input type="text" id="title" placeholder="제목" />
+        </div>
+        <div>
+          <label for="subtitle"></label>
+          <input type="text" id="subtitle" placeholder="소제목" />
+        </div>
+        <label for="content"></label>
+        <textarea name="content" id="content" placeholder="내용을 입력해 주세요."></textarea>
+        <div class="image-container">
+          <button><img src="./board-img/IconPicture.svg" alt="사진첨부" /></button>
+          <button><img src="./board-img/IconAlign.svg" alt="텍스트 정렬" /></button>
+          <button><img src="./board-img/IconKeyboard.svg" alt="키보드" /></button>
+        </div>
+        <navi-bar></navi-bar>
+      </main>
+    </div>
+  </body>
+</html>

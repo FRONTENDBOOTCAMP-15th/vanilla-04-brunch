@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./drawer_css/drawer.css" />
+    <link rel="stylesheet" href="../board/board-css/board-write.css" />
+    <link rel="stylesheet" href="../common/index.css" />
+    <script type="module" src="../components/navi.ts"></script>
+    <script type="module" src="../components/header.ts"></script>
+  </head>
+  <body>
+    <div class="drawer-container">
+      <icream-header></icream-header>
+      <!-- 관심 작가 -->
+      <section class="writer">
+        <div>
+          <h2>관심 작가</h2>
+          <button class="more-btn" aria-label="최근 본 글 더 보기">
+            <img src="./drawer-img/draer-arrow.svg" alt="" />
+          </button>
+        </div>
+        <ul class="writer-list">
+          <li class="writer-item">
+            <a href="#">
+              <img src="./drawer-img/그레이스.png" alt="그레이스" />
+              <span>그레이스</span>
+            </a>
+          </li>
+          <li class="writer-item">
+            <a href="#">
+              <img src="./drawer-img/베이스.png" alt="베이스" />
+              <span>베이스</span>
+            </a>
+          </li>
+          <li class="writer-item">
+            <a href="#">
+              <img src="./drawer-img/톰 요크.png" alt="톰 요크" />
+              <span>톰 요크</span>
+            </a>
+          </li>
+          <li class="writer-item">
+            <a href="#">
+              <img src="./drawer-img/톰 요크.png" alt="톰 요크" />
+              <span>톰 요크</span>
+            </a>
+          </li>
+          <li class="writer-item">
+            <a href="#">
+              <img src="./drawer-img/톰 요크.png" alt="톰 요크" />
+              <span>톰 요크</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 최근 본 글 -->
+      <section class="recent">
+        <h2>최근 본</h2>
+        <button class="more-btn" aria-label="최근 본 글 더 보기">
+          <img src="./drawer-img/draer-arrow.svg" alt="" />
+        </button>
+        <ul class="recent-list">
+          <li class="post">
+            <a href="#">
+              <div class="card">
+                <img src="./drawer-img/강남안에,강북 남자.jpg" alt="강남 안에, 강북 남자" />
+                <div class="white-box">
+                  <h3 class="title">강남 안에, 강북 남자</h3>
+                  <p class="post-author">눅눅한과자</p>
+                </div>
+              </div>
+            </a>
+            <a href="#">
+              <div class="card-text">
+                <p>강남 안에, 강북남자</p>
+                <span>by 눅눅한과자</span>
+              </div>
+            </a>
+          </li>
+
+          <li class="post">
+            <a href="#">
+              <div class="card">
+                <img src="./drawer-img/강남안에,강북 남자.jpg" alt="강남 안에, 강북 남자" />
+                <div class="white-box">
+                  <h3 class="title">강남 안에, 강북 남자</h3>
+                  <p class="post-author">눅눅한과자</p>
+                </div>
+              </div>
+            </a>
+            <!-- 책 작가와 책제목 -->
+            <a href="#">
+              <div class="card-text">
+                <p>강남 안에, 강북남자</p>
+                <span>by 눅눅한과자</span>
+              </div>
+            </a>
+          </li>
+          <li class="post">
+            <a href="#">
+              <div class="card">
+                <img src="./drawer-img/강남안에,강북 남자.jpg" alt="강남 안에, 강북 남자" />
+                <div class="white-box">
+                  <h3 class="title">강남 안에, 강북 남자</h3>
+                  <p class="post-author">눅눅한과자</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="#">
+              <div class="card-text">
+                <p>강남 안에, 강북남자</p>
+                <span>by 눅눅한과자</span>
+              </div>
+            </a>
+          </li>
+          <li class="post">
+            <a href="#">
+              <div class="card">
+                <img src="./drawer-img/강남안에,강북 남자.jpg" alt="강남 안에, 강북 남자" />
+                <div class="white-box">
+                  <h3 class="title">강남 안에, 강북 남자</h3>
+                  <p class="post-author">눅눅한과자</p>
+                </div>
+              </div>
+            </a>
+            <a href="#">
+              <div class="card-text">
+                <p>강남 안에, 강북남자</p>
+                <span>by 눅눅한과자</span>
+              </div>
+            </a>
+          </li>
+          <li class="post">
+            <a href="#">
+              <div class="card">
+                <img src="./drawer-img/강남안에,강북 남자.jpg" alt="강남 안에, 강북 남자" />
+                <div class="white-box">
+                  <h3 class="title">강남 안에, 강북 남자</h3>
+                  <p class="post-author">눅눅한과자</p>
+                </div>
+              </div>
+            </a>
+            <a href="#">
+              <div class="card-text">
+                <p>강남 안에, 강북남자</p>
+                <span>by 눅눅한과자</span>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 관심 글 -->
+      <section class="favorite">
+        <h2>관심 글</h2>
+        <button class="more-btn" aria-label="최근 본 글 더 보기">
+          <img src="./drawer-img/draer-arrow.svg" alt="" />
+        </button>
+        <ul class="recent-list">
+          <li class="post">
+            <a href="#">
+              <div class="card">
+                <img src="./drawer-img/강남안에,강북 남자.jpg" alt="강남 안에, 강북 남자" />
+                <div class="white-box">
+                  <h3 class="title">강남 안에, 강북 남자</h3>
+                  <p class="post-author">눅눅한과자</p>
+                </div>
+              </div>
+            </a>
+            <a href="#">
+              <div class="card-text">
+                <p>강남 안에, 강북남자</p>
+                <span>by 눅눅한과자</span>
+              </div>
+            </a>
+          </li>
+          <li class="post">
+            <a href="#">
+              <div class="card">
+                <img src="./drawer-img/강남안에,강북 남자.jpg" alt="강남 안에, 강북 남자" />
+                <div class="white-box">
+                  <h3 class="title">강남 안에, 강북 남자</h3>
+                  <p class="post-author">눅눅한과자</p>
+                </div>
+              </div>
+            </a>
+            <a href="#">
+              <div class="card-text">
+                <p>강남 안에, 강북남자</p>
+                <span>by 눅눅한과자</span>
+              </div>
+            </a>
+          </li>
+          <li class="post">
+            <a href="#">
+              <div class="card">
+                <img src="./drawer-img/강남안에,강북 남자.jpg" alt="강남 안에, 강북 남자" />
+                <div class="white-box">
+                  <h3 class="title">강남 안에, 강북 남자</h3>
+                  <p class="post-author">눅눅한과자</p>
+                </div>
+              </div>
+            </a>
+            <a href="#">
+              <div class="card-text">
+                <p>강남 안에, 강북남자</p>
+                <span>by 눅눅한과자</span>
+              </div>
+            </a>
+          </li>
+          <li class="post">
+            <a href="#">
+              <div class="card">
+                <img src="./drawer-img/강남안에,강북 남자.jpg" alt="강남 안에, 강북 남자" />
+                <div class="white-box">
+                  <h3 class="title">강남 안에, 강북 남자</h3>
+                  <p class="post-author">눅눅한과자</p>
+                </div>
+              </div>
+            </a>
+            <a href="#">
+              <div class="card-text">
+                <p>강남 안에, 강북남자</p>
+                <span>by 눅눅한과자</span>
+              </div>
+            </a>
+          </li>
+          <li class="post">
+            <a href="#">
+              <div class="card">
+                <img src="./drawer-img/강남안에,강북 남자.jpg" alt="강남 안에, 강북 남자" />
+                <div class="white-box">
+                  <h3 class="title">강남 안에, 강북 남자</h3>
+                  <p class="post-author">눅눅한과자</p>
+                </div>
+              </div>
+            </a>
+            <a href="#">
+              <div class="card-text">
+                <p>강남 안에, 강북남자</p>
+                <span>by 눅눅한과자</span>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </section>
+      <!-- 내 브런치 -->
+      <section class="mybrunch">
+        <h2>내 브런치</h2>
+        <button class="more-btn" aria-label="브런치 ">
+          <img src="./drawer-img/draer-arrow.svg" alt="" />
+        </button>
+        <ul class="content-total">
+          <li class="content">
+            <h3>D-70, 30주</h3>
+            <p>딸과 만나기까지 100일간의 기록</p>
+            <p>Feb 05 / 2024</p>
+          </li>
+          <li class="content">
+            <h3>6 윤희 - 2</h3>
+            <p>낙원</p>
+          </li>
+        </ul>
+      </section>
+      <navi-space></navi-space>
+      <navi-bar></navi-bar>
+    </div>
+  </body>
+</html>

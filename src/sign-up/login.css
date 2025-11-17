@@ -5,8 +5,11 @@
 }
 
 .login {
-  margin-inline: 20px;
-  margin-top: 72px;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  padding-inline: 20px;
+  padding-top: 72px;
 
   .login-banner {
     display: flex;

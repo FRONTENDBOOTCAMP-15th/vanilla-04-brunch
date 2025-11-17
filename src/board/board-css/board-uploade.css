@@ -1,0 +1,53 @@
+body {
+  border: 1px solid #ccc; /* 바깥 테두리 */
+  width: auto;
+  height: 918px;
+  padding-top: 44px;
+  background-color: #00c6be;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+}
+header h1 {
+  font-size: 22px;
+  margin: 0;
+  text-align: center;
+  color: #ffffff;
+  font-family: SemiBold;
+}
+header img {
+  width: 30px;
+  height: 30px;
+}
+nav {
+  background-color: #ffffff;
+}
+button {
+  background: transparent;
+  border: 0;
+}
+
+img {
+  margin: 5px;
+}
+.nav-container {
+  position: relative;
+  height: 574px;
+}
+.nav-container img {
+  position: absolute;
+}
+.nav-container button:nth-child(2) img {
+  top: 39px;
+  text-align: auto;
+  /* padding: 39px 39px 39px 39px; */
+}
+footer {
+  width: auto;
+  height: 84px;
+  background-color: #ffffff;
+  position: fixed;
+}

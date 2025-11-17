@@ -20,7 +20,7 @@ class HeaderComponent extends HTMLElement {
         <img class="search" src="../header/img/search_icon.png" alt="검색 아이콘" />
 
         <!-- 사용자 미로그인시 나올 버튼-->
-        <button>시작하기</button>
+        <button class="start-btn">시작하기</button>
 
         <!-- 사용자 로그인시 나올 프로필 사진 -->
         <!-- <img class="profile" src="../header/img/profile_header.png" alt="사용자 프로필" /> -->
