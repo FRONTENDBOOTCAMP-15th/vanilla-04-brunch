@@ -53,6 +53,7 @@ function checkField(inputId: string, value: string) {
   }
 }
 
+// 회원가입 함수
 async function onSignUp() {
   const axios = getAxios();
 
@@ -81,3 +82,66 @@ async function onSignUp() {
     alert('별명, 이메일, 비밀번호를 다시 확인해주세요.');
   }
 }
+
+// 별명, 이메일 중복 확인 버튼 클릭 시 실행되는 비동기 함수
+const duplicateName = document.querySelector('.name-information > button');
+duplicateName?.addEventListener('click', async () => {
+  const axios = getAxios();
+
+  const error1 = document.querySelector('.nickName-error');
+  const error2 = document.querySelector('.duplicate-nickName-error');
+  const success = document.querySelector('.nickName-success');
+  const name = getInputValue('nickName');
+
+  // Parameters가 쿼리를 요구하기 때문에 ?name=${name}으로 전달해줘야함
+  // 특수문자로 에러가 나는 경우 encodeURIComponent를 찾아보기
+
+  try {
+    const response = await axios.get(`/users/name?name=${name}`);
+    if (response.data.ok === 1) {
+      success?.classList.remove('hidden');
+      error1?.classList.add('hidden');
+      error2?.classList.add('hidden');
+    }
+  } catch (err) {
+    console.log(err);
+    if (name === '') {
+      error1?.classList.remove('hidden');
+      error2?.classList.add('hidden');
+    } else {
+      error2?.classList.remove('hidden');
+      error1?.classList.add('hidden');
+    }
+  }
+});
+
+const duplicateEmail = document.querySelector('.email-information > button');
+duplicateEmail?.addEventListener('click', async () => {
+  const axios = getAxios();
+
+  const error1 = document.querySelector('.email-error');
+  const error2 = document.querySelector('.duplicate-email-error');
+  const success = document.querySelector('.email-success');
+  const email = getInputValue('email');
+
+  // Parameters가 쿼리를 요구하기 때문에 ?name=${name}으로 전달해줘야함
+  // 특수문자로 에러가 나는 경우 encodeURIComponent를 찾아보기
+
+  try {
+    const response = await axios.get(`/users/email?email=${email}`);
+    if (response.data.ok === 1) {
+      success?.classList.remove('hidden');
+      error1?.classList.add('hidden');
+      error2?.classList.add('hidden');
+    }
+  } catch (err) {
+    console.log(err);
+    if (email === '') {
+      error1?.classList.remove('hidden');
+      error2?.classList.add('hidden');
+    } else {
+      error2?.classList.remove('hidden');
+      error1?.classList.add('hidden');
+    }
+  }
+});
