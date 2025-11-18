@@ -52,15 +52,94 @@ function checkField(inputId: string, value: string) {
     return true;
   }
 }
+// 별명 중복 확인 버튼 클릭 시 실행되는 비동기 함수
+const duplicateName = document.querySelector('.name-information > button');
+duplicateName?.addEventListener('click', async () => {
+  const axios = getAxios();
 
+  const error1 = document.querySelector('.nickName-error');
+  const error2 = document.querySelector('.duplicate-nickName-error');
+  const success = document.querySelector('.nickName-success');
+  const name = getInputValue('nickName');
+
+  try {
+    // Parameters가 쿼리를 요구하기 때문에 ?name=${name}으로 전달해줘야함
+    // 특수문자로 에러가 나는 경우 encodeURIComponent를 찾아보기
+    const response = await axios.get(`/users/name?name=${name}`);
+    if (response.data.ok === 1) {
+      success?.classList.remove('hidden');
+      error1?.classList.add('hidden');
+      error2?.classList.add('hidden');
+    }
+  } catch (err) {
+    console.log(err);
+    if (name === '') {
+      error1?.classList.remove('hidden');
+      error2?.classList.add('hidden');
+    } else {
+      error2?.classList.remove('hidden');
+      error1?.classList.add('hidden');
+    }
+  }
+});
+
+// 이메일 중복 확인 버튼 클릭 시 실행되는 비동기 함수
+const duplicateEmail = document.querySelector('.email-information > button');
+duplicateEmail?.addEventListener('click', async () => {
+  const axios = getAxios();
+
+  const error1 = document.querySelector('.email-error');
+  const error2 = document.querySelector('.duplicate-email-error');
+  const success = document.querySelector('.email-success');
+  const email = getInputValue('email');
+
+  try {
+    // Parameters가 쿼리를 요구하기 때문에 ?name=${name}으로 전달해줘야함
+    // 특수문자로 에러가 나는 경우 encodeURIComponent를 찾아보기
+    const response = await axios.get(`/users/email?email=${email}`);
+    if (response.data.ok === 1) {
+      success?.classList.remove('hidden');
+      error1?.classList.add('hidden');
+      error2?.classList.add('hidden');
+    }
+  } catch (err) {
+    console.log(err);
+    if (email === '') {
+      error1?.classList.remove('hidden');
+      error2?.classList.add('hidden');
+    } else {
+      error2?.classList.remove('hidden');
+      error1?.classList.add('hidden');
+    }
+  }
+});
+
+// 비밀번호, 비밀번호 확인 눈모양 이미지 클릭하면 실행되는 함수
+function checkBoxToggle(Id: string, inputName: string) {
+  // Id = 선택할 id, inputName = input의 이름
+  const checkBox = document.getElementById(`${Id}`) as HTMLInputElement;
+  const input = document.querySelector(`input[name=${inputName}]`) as HTMLInputElement;
+
+  checkBox?.addEventListener('change', () => {
+    input.type = checkBox.checked ? 'text' : 'password';
+  });
+}
+
+checkBoxToggle('password', 'input-password');
+checkBoxToggle('passwordCheck', 'input-password-check');
+
+// 회원가입 함수
 async function onSignUp() {
   const axios = getAxios();
 
   const type = 'user';
   const name = getInputValue('nickName');
   const email = getInputValue('email');
-  const password = getInputValue('password');
-  const passwordCheck = getInputValue('passwordCheck');
+
+  // password와 passwordCheck는 input type 변경을 위해 연결한 id가
+  // password, passwordCheck이기 때문에 value 값의 아이디는 뒤에 2를 붙여줬다.
+  const password = getInputValue('password2');
+  const passwordCheck = getInputValue('passwordCheck2');
 
   const isNickNameValid = checkField('nickName', name);
   const isEmailValid = checkField('email', email);
@@ -76,6 +155,8 @@ async function onSignUp() {
     const response = await axios.post<User>(`/users`, { type, name, email, password, passwordCheck });
     const users = response.data;
     console.log('회원가입 성공', users);
+    alert('회원가입 성공');
+    location.href = './login.html';
   } catch (err) {
     console.log(err);
     alert('별명, 이메일, 비밀번호를 다시 확인해주세요.');
