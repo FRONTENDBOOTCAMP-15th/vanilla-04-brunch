@@ -83,7 +83,7 @@ async function onSignUp() {
   }
 }
 
-// 별명, 이메일 중복 확인 버튼 클릭 시 실행되는 비동기 함수
+// 별명 중복 확인 버튼 클릭 시 실행되는 비동기 함수
 const duplicateName = document.querySelector('.name-information > button');
 duplicateName?.addEventListener('click', async () => {
   const axios = getAxios();
@@ -93,10 +93,9 @@ duplicateName?.addEventListener('click', async () => {
   const success = document.querySelector('.nickName-success');
   const name = getInputValue('nickName');
 
-  // Parameters가 쿼리를 요구하기 때문에 ?name=${name}으로 전달해줘야함
-  // 특수문자로 에러가 나는 경우 encodeURIComponent를 찾아보기
-
   try {
+    // Parameters가 쿼리를 요구하기 때문에 ?name=${name}으로 전달해줘야함
+    // 특수문자로 에러가 나는 경우 encodeURIComponent를 찾아보기
     const response = await axios.get(`/users/name?name=${name}`);
     if (response.data.ok === 1) {
       success?.classList.remove('hidden');
@@ -115,6 +114,7 @@ duplicateName?.addEventListener('click', async () => {
   }
 });
 
+// 이메일 중복 확인 버튼 클릭 시 실행되는 비동기 함수
 const duplicateEmail = document.querySelector('.email-information > button');
 duplicateEmail?.addEventListener('click', async () => {
   const axios = getAxios();
@@ -124,10 +124,9 @@ duplicateEmail?.addEventListener('click', async () => {
   const success = document.querySelector('.email-success');
   const email = getInputValue('email');
 
-  // Parameters가 쿼리를 요구하기 때문에 ?name=${name}으로 전달해줘야함
-  // 특수문자로 에러가 나는 경우 encodeURIComponent를 찾아보기
-
   try {
+    // Parameters가 쿼리를 요구하기 때문에 ?name=${name}으로 전달해줘야함
+    // 특수문자로 에러가 나는 경우 encodeURIComponent를 찾아보기
     const response = await axios.get(`/users/email?email=${email}`);
     if (response.data.ok === 1) {
       success?.classList.remove('hidden');
@@ -145,3 +144,5 @@ duplicateEmail?.addEventListener('click', async () => {
     }
   }
 });
+
+// 비밀번호, 비밀번호 확인 눈모양 이미지 클릭하면 실행되는 함수
