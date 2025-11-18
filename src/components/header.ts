@@ -10,17 +10,17 @@ class HeaderComponent extends HTMLElement {
     // 유저 로그인 유/무에 따른 헤더 모양 변화를 위한 함수 호출
     // const user = this.getUser();
     this.innerHTML = `<div class="header">
-      <img class="logo" src="../header/img/black_logo.png" alt="로고" />
+      <a href="/"><img class="logo" src="/src/header/img/black_logo.png" alt="로고" /></a>
       <div class="bundle">
         <!-- 사용자 로그인시 나올 종 -->
-        <!-- <img class="bell" src="../header/img/bell.png" alt="종 아이콘" /> -->
-        <img class="search" src="../header/img/search_icon.png" alt="검색 아이콘" />
+        <!-- <img class="bell" src="/src/header/img/bell.png" alt="종 아이콘" /> -->
+        <a href="/src/search/search.html"><img class="search" src="/src/header/img/search_icon.png" alt="검색 아이콘" /></a>
 
         <!-- 사용자 미로그인시 나올 버튼-->
-        <button class="start-btn">시작하기</button>
+        <a class="start-btn" href="/src/sign-up/login.html">시작하기</a>
 
         <!-- 사용자 로그인시 나올 프로필 사진 -->
-        <!-- <img class="profile" src="../header/img/profile_header.png" alt="사용자 프로필" /> -->
+        <!-- <img class="profile" src="/src/header/img/profile_header.png" alt="사용자 프로필" /> -->
       </div>
     </div>`;
   }

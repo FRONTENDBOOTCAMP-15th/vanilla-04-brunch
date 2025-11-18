@@ -15,10 +15,10 @@ class naviComponent extends HTMLElement {
         <h6 class="sr-only">하단 네비게이션 공백</h6>
       </div>
       <nav class="navi-bar">
-        <button class="navi-bar-btn" data-link="../main-page/main-page.html"><img src="${home}" alt="홈" />홈</button>
-        <button class="navi-bar-btn" data-link="../search/search.html"><img src="${search}" alt="검색하기" />발견</button>
-        <button class="navi-bar-btn" data-link="../board/write.html"><img src="${write}" alt="글쓰기" />글쓰기</button>
-        <button class="navi-bar-btn" data-link="../drawer/user-activity.html"><img src="${mybox}" alt="내서랍" />내 서랍</button>
+        <button class="navi-bar-btn" data-link="/"><img src="${home}" alt="홈" />홈</button>
+        <button class="navi-bar-btn" data-link="/src/search/search.html"><img src="${search}" alt="검색하기" />발견</button>
+        <button class="navi-bar-btn" data-link="/src/board/write.html"><img src="${write}" alt="글쓰기" />글쓰기</button>
+        <button class="navi-bar-btn" data-link="/src/drawer/user-activity.html"><img src="${mybox}" alt="내서랍" />내 서랍</button>
       </nav>
     `;
     const naviBtn = document.querySelectorAll('.navi-bar-btn');
