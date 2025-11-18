@@ -22,6 +22,7 @@ async function onLogin() {
     const response = await axios.post<User>(`/users/login`, { email, password });
     const user = response.data;
     console.log('로그인 성공: ', user);
+    location.href = '../main-page/main-page.html';
   } catch (err) {
     console.log(err);
     alert('아이디와 비밀번호를 확인해주세요.');
