@@ -15,6 +15,7 @@
 
 .bundle {
   display: flex;
+  align-items: center;
   margin-inline-start: 20px;
   margin-block: 14px;
 }
@@ -33,11 +34,12 @@
 }
 
 .start-btn {
+  height: fit-content;
   color: white;
   background-color: black;
   border-radius: 15px;
   padding-inline: 13px;
-  padding-block: 5px;
+  line-height: 24px;
   font-size: 10px;
   font-weight: 400;
   text-align: center;

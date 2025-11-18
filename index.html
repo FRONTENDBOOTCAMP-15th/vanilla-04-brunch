@@ -3,19 +3,111 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>브런치</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/brunch.svg" />
+    <link rel="icon" type="image/svg" href="/brunch.svg" />
+    <link rel="stylesheet" href="./src/common/index.css" />
+    <link rel="stylesheet" href="./src/main-page/main-page.css" />
+    <script type="module" src="./src/components/header.ts"></script>
+    <script type="module" src="./src/components/footer.ts"></script>
+    <script type="module" src="./src/components/navi.ts"></script>
   </head>
   <body>
-    <div id="app"></div>
-    <!-- <script type="module" src="/src/main.ts"></script> -->
-    <ul>
-      <li><a href="./src/main-page/main-page.html">메인 페이지</a></li>
-      <li><a href="./src/sign-up/login.html">로그인 페이지</a></li>
-      <li><a href="./src/drawer/user-activity.html">내 서랍</a></li>
-      <li><a href="./src/board/write.html">글 쓰기</a></li>
-      <li><a href="./src/search/search.html">발견</a></li>
-      <li><a href="./src/details/details.html">상세페이지</a></li>
-      <li><a href="./src/writer-home/writer-home.html">작가 홈</a></li>
-    </ul>
+    <icream-header></icream-header>
+    <div class="main-page">
+      <div>
+        <a class="banner" href="./src/details/details.html">
+          <p class="book-title">멈추어 버린 시간</p>
+          <p class="book-writer">by 김수정</p>
+          <img src="./src/main-page/img/banner.png" alt="배너 사진" />
+        </a>
+      </div>
+      <div class="brunch">
+        <ul class="brunch-list">
+          <div class="brunch-list-title">
+            <p>Today's Pick</p>
+            <h2>요즘 뜨는 브런치</h2>
+          </div>
+          <div>
+            <a class="book-information" href="./src/details/details.html">
+              <p class="list-number">1</p>
+              <div class="book-explanation">
+                <h3>무사히 마흔살이 될 수 있을까</h3>
+                <span>by 강윤이</span>
+                <p>
+                  병원에서 암 진달을 받고 나와 햇볕 <br />
+                  이 작열하며 끓어오르는 거리를 ...
+                </p>
+              </div>
+              <img src="./src/main-page/img/book1.png" alt="" />
+            </a>
+          </div>
+          <hr />
+          <div>
+            <a class="book-information" href="./src/details/details.html">
+              <p class="list-number">2</p>
+              <div class="book-explanation">
+                <h3>맞벌이 하루살이</h3>
+                <span>by 서리</span>
+                <p>
+                  누구의 엄마로 불리지만, 그 전에 내 <br />
+                  이름이 있다. 엄마로 육아하면서 ...
+                </p>
+              </div>
+              <img src="./src/main-page/img/book2.png" alt="" />
+            </a>
+          </div>
+          <hr />
+        </ul>
+      </div>
+
+      <div class="hot-writer">
+        <h3>구독자 급등 작가</h3>
+        <div class="writer-list">
+          <div class="writer1">
+            <a href="./src/writer-home/writer-home.html">
+              <figure class="writer">
+                <img src="./src/main-page/img/writer1.png" alt="" width="" height="" />
+                <figcaption class="title">피터팬</figcaption>
+                <figcaption class="job">목사 만화가</figcaption>
+                <figcaption class="text">하나님을 사랑하고 아내를 사랑하고 여행을 ...</figcaption>
+              </figure>
+            </a>
+          </div>
+          <div class="writer2">
+            <a href="./src/writer-home/writer-home.html">
+              <figure class="writer">
+                <img src="./src/main-page/img/writer2.png" alt="" width="" height="" />
+                <figcaption class="title">빛날현</figcaption>
+                <figcaption class="job">에세이스트</figcaption>
+                <figcaption class="text">26살부터 47살까지 교수님이라 불리우는 목...</figcaption>
+              </figure>
+            </a>
+          </div>
+          <div class="writer3">
+            <a href="./src/writer-home/writer-home.html">
+              <figure class="writer">
+                <img src="./src/main-page/img/writer3.png" alt="" width="" height="" />
+                <figcaption class="title">허사이</figcaption>
+                <figcaption class="job"></figcaption>
+                <figcaption class="text">책방 셔터맨을 꿈꾸는 40대 공돌이. 다양한 ...</figcaption>
+              </figure>
+            </a>
+          </div>
+          <div class="writer4">
+            <a href="./src/writer-home/writer-home.html">
+              <figure class="writer">
+                <img src="./src/main-page/img/writer4.png" alt="" width="" height="" />
+                <figcaption class="title">마틸다 하나씨</figcaption>
+                <figcaption class="job">에세이스트</figcaption>
+                <figcaption class="text">하노이에 깃든 시간을 따라 매일 새로운 세...</figcaption>
+              </figure>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <icream-footer></icream-footer>
+    <navi-bar></navi-bar>
   </body>
 </html>
