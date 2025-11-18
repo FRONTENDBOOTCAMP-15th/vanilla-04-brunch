@@ -40,8 +40,7 @@ hr {
 .favorite {
   padding: 34px 0 0 25px;
 }
-.mybrunch {
-}
+
 .mybrunch h2 {
   margin: 25px;
 }
@@ -49,6 +48,7 @@ hr {
   display: flex;
   flex-direction: column;
   padding: 34px 0 0 25px;
+  margin-top: 34px;
 }
 .writer-list {
   display: flex;
