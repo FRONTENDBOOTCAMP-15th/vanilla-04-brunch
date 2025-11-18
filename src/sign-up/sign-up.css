@@ -56,7 +56,7 @@
       height: 24px;
     }
 
-    #password + label,
+    #password:checked + label,
     #passwordCheck:checked + label {
       background: url(/src/sign-up/img/password_on.png);
       width: 24px;
