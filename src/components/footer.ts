@@ -1,3 +1,8 @@
+import kakaoLogo from '../footer/img/kakao.png';
+import facebookLogo from '../footer/img/facebook.png';
+import xLogo from '../footer/img/x.png';
+import footerLogo from '../footer/img/white_logo.png';
+
 class FooterComponent extends HTMLElement {
   // Footer 컴포넌트
   connectedCallback() {
@@ -8,9 +13,9 @@ class FooterComponent extends HTMLElement {
     this.innerHTML = `<div class="footer">
       <div>
         <div class="sns-div">
-          <img class="kakao" src="/src/footer/img/kakao.png" alt="kakao-sns" />
-          <img class="facebook" src="/src/footer/img/facebook.png" alt="facebook-sns" />
-          <img class="x" src="/src/footer/img/x.png" alt="X-sns" />
+          <img class="kakao" src="${kakaoLogo}" alt="kakao-sns" />
+          <img class="facebook" src="${facebookLogo}" alt="facebook-sns" />
+          <img class="x" src="${xLogo}" alt="X-sns" />
         </div>
         <div class="p-list">
           <p>이용약관</p>
@@ -21,7 +26,7 @@ class FooterComponent extends HTMLElement {
           <p>운영정책</p>
         </div>
         <div class="footer-title">
-          <img class="logo" src="/src/footer/img/white_logo.png" alt="로고" />
+          <img class="logo" src="${footerLogo}" alt="로고" />
         </div>
       </div>
     </div>`;
