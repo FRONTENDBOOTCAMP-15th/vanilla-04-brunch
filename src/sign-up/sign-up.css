@@ -38,15 +38,14 @@
     padding-block: 5px;
   }
 
-  .success-message {
+  .success {
     color: #00c6de;
     font-size: 12px;
   }
 
-  .error-message {
+  .error {
     color: red;
     font-size: 12px;
-    /* visibility: hidden; */
   }
 
   input:user-invalid + .error-message {
@@ -68,11 +67,17 @@
   }
 }
 
+/* success, error-message hidden 처리 클래스 */
+.hidden {
+  display: none;
+}
+
 .sign-up-information {
   display: flex;
   position: relative;
   justify-content: flex-end;
   align-items: center;
+  margin-bottom: 20px;
 
   label,
   button {

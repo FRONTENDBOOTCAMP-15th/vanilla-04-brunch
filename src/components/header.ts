@@ -2,10 +2,13 @@ class HeaderComponent extends HTMLElement {
   // Header 컴포넌트
   // 웹 컴포넌트가 DOM 연결될 때 호출되는 메서드
   // 컴포넌트 렌더링과 이벤트 초기화를 수행
+  // 커스텀 엘리먼트를 상속 받아야 사용 가능
+  // Web Components API
   connectedCallback() {
     this.render();
   }
 
+  // 프레임워크 메서드
   render() {
     // 유저 로그인 유/무에 따른 헤더 모양 변화를 위한 함수 호출
     // const user = this.getUser();
