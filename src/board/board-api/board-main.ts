@@ -1,36 +1,37 @@
 import { getAxios } from '../../utils/axios';
-import type { fileUpload, PostWrite } from './board-types';
+import type { fileUpload, PostWrite, UploadResponse } from './board-types';
 
 const axiosInstance = getAxios();
 
 /**
- * 파일 업로드
- * @param filesArray 업로드할 파일 배열
+ * 파일 업로드할 파일 배열
  */
 let uploadFiles: File[] = [];
+
 /**
  * 파일 업로드 함수
  * @param filesArray 업로드할 File 배열
  * @returns 업로드 결과 { ok: number, item: fileUpload[] }
  */
-export async function uploadFile(filesArray: File[]) {
-  const file = Array.from(filesArray); // 중복 변수명 제거
-
+export async function uploadFile(filesArray: File[]): Promise<UploadResponse> {
   if (!filesArray || filesArray.length === 0) {
     return { ok: 0, item: [] };
   }
-  const imgFormData = new FormData();
+
+  const formData = new FormData();
   filesArray.forEach((file) => {
-    imgFormData.append('attach', file);
+    formData.append('attach', file);
   });
+
   try {
-    // 콘솔로그:  FormData 내용 확인
-    for (const pair of imgFormData.entries()) {
-    }
-    const { data } = await axiosInstance.post<fileUpload[]>('/files', imgFormData, { headers: { 'Content-Type': 'multipart/form-data' } });
-    return { ok: 1, item: data };
+    // 서버에서 바로 fileUpload[] 배열 반환
+    const { data } = await axiosInstance.post<fileUpload[]>('/files', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    });
+
+    return { ok: 1, item: data }; // wrapper 없이 바로 배열
   } catch (error) {
-    console.log('error 발생', error);
+    console.error('파일 업로드 중 오류 발생:', error);
     return { ok: 0, item: [] };
   }
 }
@@ -43,19 +44,22 @@ export async function uploadFile(filesArray: File[]) {
  * @param files 첨부 파일 경로 배열
  * @returns 생성된 게시글 정보(PostWrite) 또는 undefined
  */
-export async function createPost(title: string, content: string, extra: string, files: string[]): Promise<PostWrite | undefined> {
-  console.log('==d=', title, content);
+export async function createPost(title: string, content: string, extra: string, firstResponse: string[]): Promise<PostWrite | undefined> {
+  console.log('게시글 생성 데이터:', title, content, extra, firstResponse);
+
   try {
     const postData = {
       title,
       content,
       extra,
-      files,
+      image: firstResponse, // 서버에 보내는 첨부파일 경로 배열
     };
-    const { data } = await axiosInstance.post<PostWrite>(`/posts/`, postData);
+
+    const { data } = await axiosInstance.post<PostWrite>('/posts/', postData);
     console.log('게시글 생성 결과:', data);
+
     return data;
   } catch (err) {
-    console.log('글 생성 중 에러 발생', err);
+    console.error('글 생성 중 오류 발생:', err);
   }
 }

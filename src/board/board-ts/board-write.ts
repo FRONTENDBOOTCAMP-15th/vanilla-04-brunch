@@ -52,27 +52,29 @@ let filePaths: string[] = [];
       button.addEventListener('click', async () => {
         try {
           const fileUploadResult = inputFile.files;
-
+          let uploadedFilePaths: string[] = [];
           if (fileUploadResult) {
             const newSelectedFiles = Array.from(fileUploadResult);
             filesArray = filesArray.concat(newSelectedFiles);
 
             // 서버에 파일 업로드
             const response: UploadResponse = await uploadFile(filesArray); // Axios 반환값
-            const uploadedFiles: fileUpload[] = ([] as fileUpload[]).concat(response.item ?? []); //서버에서 받은 파일 업로드 결과
+            const uploadedFiles: fileUpload[] = ([] as fileUpload[]).concat(response.item ?? []);
+            console.log('==uploadedFiles', uploadedFiles);
+            const finish = uploadedFiles[0].item;
 
-            // 업로드된 파일 경로만 추출
-            filePaths = uploadedFiles.map((file) => file.path);
+            uploadedFilePaths = finish?.map((data) => {
+              console.log(data);
+              return data.path;
+            });
           }
-
           // 2. 글쓰기 값 가져오기
           const postTitle = inputTitle.value;
           const postSubTitle = inputSubTitle.value;
           const postContent = inputContent.value;
 
           // 3. 글 + 파일경로 함께 서버 전송
-          const writeResult = await createPost(postTitle, postSubTitle, postContent, filePaths);
-          console.log('writeResult:', writeResult);
+          const writeResult = await createPost(postTitle, postSubTitle, postContent, uploadedFilePaths);
 
           // 서버에서 받은 새 글 ID
           if (writeResult) {
