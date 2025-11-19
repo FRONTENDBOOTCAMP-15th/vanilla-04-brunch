@@ -17,10 +17,10 @@ http only cookie = 서버쪽에서만 접근 가능(현재는 이 방식을 주�
 
 import { getAxios } from '../utils/axios';
 
-interface User {
-  email: string;
-  password: string;
-}
+// interface User {
+//   email: string;
+//   password: string;
+// }
 
 const loginBtn = document.querySelector('.login-btn');
 loginBtn?.addEventListener('click', () => {
