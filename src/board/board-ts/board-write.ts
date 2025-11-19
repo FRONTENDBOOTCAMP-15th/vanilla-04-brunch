@@ -1,14 +1,28 @@
-// import type { FileInfo } from '../board-api/board-types';
-
 import type { fileUpload, UploadResponse } from '../board-api/board-types';
 import { createPost, uploadFile } from './../board-api/board-main';
-let filesArray: File[] = [];
-let filePaths: string[] = [];
-(() => {
-  function titleWrite(value: string) {}
-  function subTitle(value: string) {}
-  function contentWrite(value: string) {}
 
+/**
+ * 업로드할 파일 객체 배열
+ */
+let filesArray: File[] = [];
+
+/**
+ * 서버에서 반환받은 업로드 파일 경로 배열
+ */
+let filePaths: string[] = [];
+
+(() => {
+  function titleWrite(value: string) {
+    if (inputTitle) inputTitle.value = value;
+  }
+  function subTitle(value: string) {
+    if (inputSubTitle) inputSubTitle.value = value;
+  }
+  function contentWrite(value: string) {
+    if (inputContent) inputContent.value = value;
+  }
+
+  // DOM 요소 선택
   const inputTitle = document.querySelector('#title') as HTMLInputElement;
   const inputSubTitle = document.querySelector('#subtitle') as HTMLInputElement;
   const inputContent = document.querySelector('#content') as HTMLInputElement;
@@ -18,6 +32,7 @@ let filePaths: string[] = [];
   const previewFile = document.getElementById('previewContainer') as HTMLElement;
 
   const init = () => {
+    // 글 입력
     inputTitle.addEventListener('keyup', (event: Event) => {
       const target = event.target as HTMLInputElement;
       titleWrite(target.value);
@@ -32,7 +47,7 @@ let filePaths: string[] = [];
       const contentTarget = event.target as HTMLInputElement;
       contentWrite(contentTarget.value);
     });
-
+    // 저장 버튼 클릭 이벤트
     if (button) {
       button.addEventListener('click', async () => {
         try {
@@ -42,14 +57,12 @@ let filePaths: string[] = [];
             const newSelectedFiles = Array.from(fileUploadResult);
             filesArray = filesArray.concat(newSelectedFiles);
 
+            // 서버에 파일 업로드
             const response: UploadResponse = await uploadFile(filesArray); // Axios 반환값
-            const uploadedFiles: fileUpload[] = response.item ?? [];
-            console.log('=d', uploadedFiles);
+            const uploadedFiles: fileUpload[] = ([] as fileUpload[]).concat(response.item ?? []); //서버에서 받은 파일 업로드 결과
+
+            // 업로드된 파일 경로만 추출
             filePaths = uploadedFiles.map((file) => file.path);
-
-            console.log('최종 path 배열:', filePaths);
-
-            console.log('파일 추출 하는곳', filesArray);
           }
 
           // 2. 글쓰기 값 가져오기
@@ -58,19 +71,25 @@ let filePaths: string[] = [];
           const postContent = inputContent.value;
 
           // 3. 글 + 파일경로 함께 서버 전송
-          const writeResult = createPost(postTitle, postSubTitle, postContent, filePaths);
+          const writeResult = await createPost(postTitle, postSubTitle, postContent, filePaths);
+          console.log('writeResult:', writeResult);
+
+          // 서버에서 받은 새 글 ID
+          if (writeResult) {
+            const newPostId = writeResult.item._id;
+            // 상세페이지로 이동
+            window.location.href = `/src/details/details.html?id=${newPostId}`;
+          }
         } catch (error) {
           console.error('저장 중 오류:', error);
         }
       });
     }
-
+    // 파일 선택창 열기
     fileUpload.addEventListener('click', () => {
       inputFile.click();
     });
-
-    // let filesArray: File[] = [];
-
+    // 파일 선택 시 미리보기 및 배열에 저장
     inputFile.addEventListener('change', () => {
       const fileList = inputFile.files;
       console.log('fileList', fileList);
@@ -80,7 +99,10 @@ let filePaths: string[] = [];
         viewFile(filesArray);
       }
     });
-
+    /**
+     * 선택한 파일 미리보기 함수
+     * @param filesArray 미리보기할 파일 배열
+     */
     function viewFile(filesArray: File[]) {
       const result = filesArray.map((file) => {
         const imgURL = URL.createObjectURL(file);
