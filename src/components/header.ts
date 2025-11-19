@@ -15,21 +15,27 @@ class HeaderComponent extends HTMLElement {
 
   // 프레임워크 메서드
   render() {
+    const token = sessionStorage.getItem('accessToken');
     // 유저 로그인 유/무에 따른 헤더 모양 변화를 위한 함수 호출
     // const user = this.getUser();
     this.innerHTML = `<div class="header">
       <a href="/"><img class="logo" src="${homeLogo}" alt="로고" /></a>
-      <div class="bundle">
-        <!-- 사용자 로그인시 나올 종 -->
-        <!-- <img class="bell" src="${bell}" alt="종 아이콘" /> -->
-        <a href="/src/search/search.html"><img class="search" src="${search}" alt="검색 아이콘" /></a>
-
-        <!-- 사용자 미로그인시 나올 버튼-->
-        <a class="start-btn" href="/src/sign-up/login.html">시작하기</a>
-
-        <!-- 사용자 로그인시 나올 프로필 사진 -->
-        <!-- <img class="profile" src="${profile}" alt="사용자 프로필" /> -->
-      </div>
+      ${
+        token
+          ? `
+          <div class="bundle">
+            <img class="bell" src="${bell}" alt="종 아이콘" />
+            <a href="/src/search/search.html"><img class="search" src="${search}" alt="검색 아이콘" /></a>
+            <img class="profile" src="${profile}" alt="사용자 프로필" />
+          </div>
+          `
+          : `
+          <div class="bundle">
+            <a href="/src/search/search.html"><img class="search" src="${search}" alt="검색 아이콘" /></a>
+            <a class="start-btn" href="/src/sign-up/login.html">시작하기</a>
+          </div>
+          `
+      }
     </div>`;
   }
 
