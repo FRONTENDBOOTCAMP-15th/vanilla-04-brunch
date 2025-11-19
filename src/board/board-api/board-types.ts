@@ -9,8 +9,16 @@ export interface PostWrite {
   tag: string;
 }
 export interface fileUpload {
-  attach: Array<string>;
+  // attach?: Array<string>;
+  name: string;
+  path: string;
 }
+
+export interface UploadResponse {
+  ok: number;
+  item: fileUpload[];
+}
+
 export interface FileInfo {
   name: string;
   size: number;

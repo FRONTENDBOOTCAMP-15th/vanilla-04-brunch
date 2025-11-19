@@ -1,6 +1,9 @@
 // import type { FileInfo } from '../board-api/board-types';
-import { createPost, uploadFile } from './../board-api/board-main';
 
+import type { fileUpload, UploadResponse } from '../board-api/board-types';
+import { createPost, uploadFile } from './../board-api/board-main';
+let filesArray: File[] = [];
+let filePaths: string[] = [];
 (() => {
   function titleWrite(value: string) {}
   function subTitle(value: string) {}
@@ -33,20 +36,29 @@ import { createPost, uploadFile } from './../board-api/board-main';
     if (button) {
       button.addEventListener('click', async () => {
         try {
-          let fileUploadResult = inputFile.files;
+          const fileUploadResult = inputFile.files;
+
           if (fileUploadResult) {
             const newSelectedFiles = Array.from(fileUploadResult);
             filesArray = filesArray.concat(newSelectedFiles);
-            const file = uploadFile(filesArray);
-          }
-          if (fileUploadResult?.length === 0 && fileUploadResult) {
-            // const file = uploadFile(fileUploadResult);
+
+            const response: UploadResponse = await uploadFile(filesArray); // Axios 반환값
+            const uploadedFiles: fileUpload[] = response.item ?? [];
+            console.log('=d', uploadedFiles);
+            filePaths = uploadedFiles.map((file) => file.path);
+
+            console.log('최종 path 배열:', filePaths);
+
+            console.log('파일 추출 하는곳', filesArray);
           }
 
+          // 2. 글쓰기 값 가져오기
           const postTitle = inputTitle.value;
           const postSubTitle = inputSubTitle.value;
           const postContent = inputContent.value;
-          const writeResult = createPost(postTitle, postSubTitle, postContent);
+
+          // 3. 글 + 파일경로 함께 서버 전송
+          const writeResult = createPost(postTitle, postSubTitle, postContent, filePaths);
         } catch (error) {
           console.error('저장 중 오류:', error);
         }
@@ -57,7 +69,7 @@ import { createPost, uploadFile } from './../board-api/board-main';
       inputFile.click();
     });
 
-    let filesArray: File[] = [];
+    // let filesArray: File[] = [];
 
     inputFile.addEventListener('change', () => {
       const fileList = inputFile.files;
