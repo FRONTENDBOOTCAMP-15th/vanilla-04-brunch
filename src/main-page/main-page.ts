@@ -94,6 +94,7 @@ class MainPageComponent extends HTMLElement {
       ${
         user.type === 'seller'
           ? `<div class="writer${index + 1}">
+          <a href="./src/writer-home/writer-home.html">
             <figure class="writer">
               <img src="${user.image}" alt="" />
               <figcaption class="title">${user.name}</figcaption>
