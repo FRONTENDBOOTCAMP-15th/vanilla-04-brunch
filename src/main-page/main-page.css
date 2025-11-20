@@ -49,12 +49,13 @@
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: start;
-  max-width: 310px;
+  width: 310px;
   margin-inline: 25px;
   gap: 15px;
   justify-self: center;
   margin-top: 30px;
   font-size: 20px;
+  cursor: pointer;
 
   div {
     grid-column: 2;
@@ -62,6 +63,8 @@
 
   img {
     grid-column: 3;
+    width: 100px;
+    height: 100px;
   }
 }
 
@@ -110,7 +113,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-inline: 11px 23px;
   margin-block: 20px;
 
   img {
