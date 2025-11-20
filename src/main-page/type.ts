@@ -11,3 +11,19 @@ export interface Posts {
     email: string;
   };
 }
+
+export interface Users {
+  _id: number;
+  email: string;
+  name: string;
+  type: string;
+  image: string;
+  extra: {
+    job: string;
+    biography: string;
+    keyword: string;
+  };
+  bookmarkedBy: {
+    users: number;
+  };
+}
