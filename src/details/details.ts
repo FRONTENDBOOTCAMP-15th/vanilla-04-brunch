@@ -7,21 +7,21 @@ const userId = Number(sessionStorage.getItem('userId'));
 const params = new URLSearchParams(window.location.search); // URL 뒤에 붙는 ?id=170&sort=asc&... 같은 쿼리 스트링을 담은 객체
 const postId = Number(params.get('id'));
 
-function arrayPostId(idVal: number) {
-  // 세션스토리지에 있는 postId 가져오기
-  const bringPostId = sessionStorage.getItem('postId');
-  const parsePostId = bringPostId ? JSON.parse(bringPostId) : [];
-  const updatePostId = parsePostId.push(idVal);
+// function arrayPostId(idVal: number) {
+//   // 세션스토리지에 있는 postId 가져오기
+//   const bringPostId = sessionStorage.getItem('postId');
+//   const parsePostId = bringPostId ? JSON.parse(bringPostId) : [];
+//   const updatePostId = parsePostId.push(idVal);
 
-  if (!bringPostId) return [];
+//   if (!bringPostId) return [];
 
-  // let PostIdArr = [];
-  // PostIdArr.push(idVal);
-  // console.log(PostIdArr);
-  sessionStorage.setItem('postId', JSON.stringify(updatePostId));
-}
+//   // let PostIdArr = [];
+//   // PostIdArr.push(idVal);
+//   // console.log(PostIdArr);
+//   sessionStorage.setItem('postId', JSON.stringify(updatePostId));
+// }
 
-arrayPostId(postId);
+// arrayPostId(postId);
 
 // 상세페이지 - 데이터 get 함수
 async function getDetailData(no: number) {
