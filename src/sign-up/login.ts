@@ -44,8 +44,7 @@ async function onLogin() {
     sessionStorage.setItem('user-id', userId);
 
     console.log('로그인 성공: ', user);
-    // location.href = '/';
-    location.href = '../main-page/main-page.html';
+    location.href = '/';
   } catch (err) {
     console.log(err);
     alert('아이디와 비밀번호를 확인해주세요.');
