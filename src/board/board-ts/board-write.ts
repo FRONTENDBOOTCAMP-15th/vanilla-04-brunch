@@ -54,9 +54,6 @@ let filePaths: string[] = [];
           const fileUploadResult = inputFile.files;
           let uploadedFilePaths: string[] = [];
           if (fileUploadResult) {
-            const newSelectedFiles = Array.from(fileUploadResult);
-            filesArray = filesArray.concat(newSelectedFiles);
-
             // 서버에 파일 업로드
             const response: UploadResponse = await uploadFile(filesArray); // Axios 반환값
             const uploadedFiles: fileUpload[] = ([] as fileUpload[]).concat(response.item ?? []);
