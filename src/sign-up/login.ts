@@ -39,7 +39,9 @@ async function onLogin() {
     const response = await axios.post(`/users/login?expiresln=1d`, { email, password });
     const user = response.data;
     const accessToken = user.item.token.accessToken;
+    const userId = user.item._id;
     sessionStorage.setItem('accessToken', accessToken);
+    sessionStorage.setItem('user-id', userId);
 
     console.log('로그인 성공: ', user);
     location.href = '/';

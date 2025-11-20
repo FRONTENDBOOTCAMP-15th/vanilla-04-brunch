@@ -1,14 +1,3 @@
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button {
-  padding: 0;
-  background-color: inherit;
-  border: none;
-}
-
 /* article-container */
 .article-container {
   width: 100%;
@@ -23,12 +12,26 @@ button {
 }
 
 .article-cover {
+  position: relative;
   display: flex;
   align-items: flex-end;
   height: 290px;
   padding: 0 20px 20px 20px;
   background-position: 50% 50%;
   background-size: cover;
+  z-index: 1;
+
+  &::before {
+    display: block;
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(3px);
+    z-index: -1;
+  }
 }
 
 .article-info {
@@ -111,6 +114,7 @@ button {
 
   img {
     width: 100%;
+    border: 1px solid #eee;
   }
 
   figcaption {
@@ -259,6 +263,13 @@ button {
 .comment-write {
   border: 1px solid #dddddd;
 
+  .comment-write-noToken {
+    display: block;
+    padding: 14px 16px;
+    color: #959595;
+    font-size: 15px;
+  }
+
   .comment-write-box {
     padding: 15px 0 15px 20px;
   }
@@ -332,13 +343,10 @@ button {
 .author-name-job {
   .author-name {
     display: block;
-
-    a {
-      color: #333333;
-      font-size: 22px;
-      font-weight: 400;
-      letter-spacing: -1px;
-    }
+    color: #333333;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: -1px;
   }
 
   .author-job {
@@ -355,6 +363,7 @@ button {
   img {
     width: 50px;
     height: 50px;
+    border: 1px solid #eee;
     border-radius: 50%;
   }
 }
@@ -405,6 +414,18 @@ button {
   .subscribe-text {
     color: #00c6be;
     font-size: 14px;
+  }
+
+  &.subscribe-check {
+    background-color: #00c6be;
+
+    .subscribe-icon {
+      background-position: 17px 0;
+    }
+
+    .subscribe-text {
+      color: #fff;
+    }
   }
 }
 
