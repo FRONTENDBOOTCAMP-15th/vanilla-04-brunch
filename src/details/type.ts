@@ -5,7 +5,7 @@ export interface PostInfo {
   extra: {
     subTitle: string;
   };
-  image: string;
+  image: string[];
   content: string;
   user: {
     _id: number;
@@ -23,9 +23,6 @@ export interface PostInfo {
       image: string;
     };
   }[];
-  product: {
-    mainImages: string[];
-  };
 }
 
 export interface PostAuthorInfo {
