@@ -7,6 +7,7 @@ export interface PostInfo {
   };
   image: string;
   content: string;
+  contentImage: string[];
   user: {
     _id: number;
     name: string;
@@ -23,9 +24,6 @@ export interface PostInfo {
       image: string;
     };
   }[];
-  product: {
-    mainImages: string[];
-  };
 }
 
 export interface PostAuthorInfo {

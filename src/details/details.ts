@@ -7,6 +7,18 @@ const userId = Number(sessionStorage.getItem('userId'));
 const params = new URLSearchParams(window.location.search); // URL 뒤에 붙는 ?id=170&sort=asc&... 같은 쿼리 스트링을 담은 객체
 const postId = Number(params.get('id'));
 
+function arrayPostId(idVal: number) {
+  // 세션스토리지에 있는 postId 가져오기
+  // const bringPostId = sessionStorage.getItem();
+
+  let PostIdArr = [];
+  PostIdArr.push(idVal);
+  // console.log(PostIdArr);
+  sessionStorage.setItem('postId', JSON.stringify(PostIdArr));
+}
+
+arrayPostId(postId);
+
 // 상세페이지 - 데이터 get 함수
 async function getDetailData(no: number) {
   const axios = getAxios(); // axios 인스턴스 생성
@@ -64,16 +76,16 @@ function detailRender(posts: PostInfo) {
     postsDate.innerHTML = result;
   }
   if (postsContentP) {
-    // const result = posts.contentImage?.map((img) => {
-    //   return `
-    //     <figure class="article-content-figure">
-    //       <img src="${img}" alt="상세페이지 연관 이미지" />
-    //       <figcaption>상세페이지 연관 이미지</figcaption>
-    //     </figure>
-    //   `;
-    // });
+    const result = posts.contentImage?.map((img) => {
+      return `
+        <figure class="article-content-figure">
+          <img src="${img}" alt="상세페이지 연관 이미지" />
+          <figcaption>상세페이지 연관 이미지</figcaption>
+        </figure>
+      `;
+    });
     postsContentP.innerHTML = posts.content;
-    // postsContentImg.innerHTML = result?.join('') ?? '';
+    postsContentImg.innerHTML = result?.join('') ?? '';
   }
   if (replyTotalNum) {
     const count = posts.replies?.length ?? 0;
@@ -113,6 +125,9 @@ function detailRender(posts: PostInfo) {
     });
     replyList.innerHTML = result?.join('') ?? '';
   }
+
+  sessionStorage.setItem('postTitle', posts.title);
+  sessionStorage.setItem('postUserName', posts.user.name);
 }
 
 // 상세페이지 - 2번 째 게시물 응답 데이터, (2) 임시 값 - URL로 전달 받을 값
