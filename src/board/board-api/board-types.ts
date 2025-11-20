@@ -9,7 +9,7 @@ export interface PostWrite {
     title: string;
     content: string;
     extra: string;
-    files: string[];
+    image: string[];
   };
 }
 /**
