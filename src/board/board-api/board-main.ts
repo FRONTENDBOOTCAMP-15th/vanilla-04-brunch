@@ -44,15 +44,22 @@ export async function uploadFile(filesArray: File[]): Promise<UploadResponse> {
  * @param files 첨부 파일 경로 배열
  * @returns 생성된 게시글 정보(PostWrite) 또는 undefined
  */
+
 export async function createPost(title: string, content: string, extra: string, firstResponse: string[]): Promise<PostWrite | undefined> {
   console.log('게시글 생성 데이터:', title, content, extra, firstResponse);
+  console.log('=titles==', title);
+  console.log('contents==', content);
+
+  console.log('=extras==', extra);
+
+  console.log('=firstResponse ==', firstResponse);
 
   try {
     const postData = {
       title,
-      content,
-      extra,
-      image: firstResponse, // 서버에 보내는 첨부파일 경로 배열
+      content: extra,
+      extra: { subTitle: content },
+      contentImage: firstResponse, // 서버에 보내는 첨부파일 경로 배열
     };
 
     const { data } = await axiosInstance.post<PostWrite>('/posts/', postData);
