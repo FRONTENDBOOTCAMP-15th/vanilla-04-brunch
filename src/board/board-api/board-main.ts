@@ -59,7 +59,7 @@ export async function createPost(title: string, content: string, extra: string, 
       title,
       content: extra,
       extra: { subTitle: content },
-      contentImage: firstResponse, // 서버에 보내는 첨부파일 경로 배열
+      image: firstResponse, // 서버에 보내는 첨부파일 경로 배열
     };
 
     const { data } = await axiosInstance.post<PostWrite>('/posts/', postData);
