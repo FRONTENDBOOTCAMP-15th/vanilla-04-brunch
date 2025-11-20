@@ -5,9 +5,8 @@ export interface PostInfo {
   extra: {
     subTitle: string;
   };
-  image: string;
+  image: string[];
   content: string;
-  contentImage: string[];
   user: {
     _id: number;
     name: string;

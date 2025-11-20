@@ -9,12 +9,16 @@ const postId = Number(params.get('id'));
 
 function arrayPostId(idVal: number) {
   // 세션스토리지에 있는 postId 가져오기
-  // const bringPostId = sessionStorage.getItem();
+  const bringPostId = sessionStorage.getItem('postId');
+  const parsePostId = bringPostId ? JSON.parse(bringPostId) : [];
+  const updatePostId = parsePostId.push(idVal);
 
-  let PostIdArr = [];
-  PostIdArr.push(idVal);
+  if (!bringPostId) return [];
+
+  // let PostIdArr = [];
+  // PostIdArr.push(idVal);
   // console.log(PostIdArr);
-  sessionStorage.setItem('postId', JSON.stringify(PostIdArr));
+  sessionStorage.setItem('postId', JSON.stringify(updatePostId));
 }
 
 arrayPostId(postId);
@@ -47,7 +51,7 @@ function detailRender(posts: PostInfo) {
   const replyList = document.querySelector('.comment-list') as HTMLElement;
 
   if (posts.image) {
-    postsCover.style.backgroundImage = `url("${posts.image}")`;
+    postsCover.style.backgroundImage = `url("${posts.image[0]}")`;
   } else {
     postsCover.style.backgroundImage = `url("./images/cover-default.png")`;
   }
@@ -76,7 +80,7 @@ function detailRender(posts: PostInfo) {
     postsDate.innerHTML = result;
   }
   if (postsContentP) {
-    const result = posts.contentImage?.map((img) => {
+    const result = posts.image?.map((img) => {
       return `
         <figure class="article-content-figure">
           <img src="${img}" alt="상세페이지 연관 이미지" />
