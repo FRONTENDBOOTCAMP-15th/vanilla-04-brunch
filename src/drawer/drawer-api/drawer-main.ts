@@ -1,5 +1,5 @@
 import { getAxios } from '../../utils/axios';
-import type { bookmarkinfoRes, bookmarkInter, BookmarkInterRes, UserPostResponse } from './drawer-types';
+import type { bookmarkinfoRes, BookmarkInterRes, UserPostResponse } from './drawer-types';
 
 const axiosInstance = getAxios();
 
@@ -8,15 +8,8 @@ const axiosInstance = getAxios();
 export async function authorList() {
   try {
     // const type = 'bookmarks';
-    const token = sessionStorage.getItem('accessToken');
+    // const token = sessionStorage.getItem('accessToken');
     const userId = sessionStorage.getItem('user-id');
-
-    if (!token) {
-      console.error('로그인이 안되어 있어 로그인화면으로 가세요');
-      alert('로그인해주세요');
-      window.location.href = './src/user/login/login.html';
-      return []; // 빈 배열로 반환! (string 반환 X)
-    }
 
     const { data } = await axiosInstance.get<bookmarkinfoRes>(`/users/${userId}/bookmarks`);
 
@@ -72,29 +65,24 @@ async function userList() {
 
 //4.  제한 없이 저장
 //3. 관심글
+// 3. 관심 글 조회
 
 export async function interPost() {
   try {
-    console.log('hidddddddddd');
     const mark = await axiosInstance.get<BookmarkInterRes>(`/bookmarks/post/`);
     const likeBook = mark.data.item;
-    console.log(' dd', likeBook);
-
-    const iterBook = likeBook.map((book) => {
-      console.log(book);
-      return {
-        postId: book.post._id,
-        title: book.post.title,
-        author: book.post.user.name,
-        postImage: book.post.image,
-      };
-    });
-
-    console.log('iterBook', iterBook);
+    console.log(likeBook);
+    const iterBook = likeBook.map((book) => ({
+      postId: book.post._id,
+      title: book.post.title,
+      author: book.post.user.name,
+      postImage: book.post.image ?? [],
+    }));
 
     return iterBook;
   } catch (error) {
-    console.error('에러입니다');
+    console.error('interPost 에러:', error);
+    return [];
   }
 }
 
@@ -124,6 +112,15 @@ export async function userBranch() {
     console.log(error);
   }
 }
+// export async function loadimage(url: string) {
+//   try {
+//     await axiosInstance.get(url);
+//     return url;
+//   } catch {
+//     return 'drawer-img/book.img.png';
+//   }
+// }
+
 interPost();
 authorList();
 userList();

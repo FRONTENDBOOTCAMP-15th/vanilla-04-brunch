@@ -117,12 +117,6 @@ interface User {
 export interface UserPostResponse {
   ok: number;
   item: userPost[]; // item은 userPost 배열
-  // pagination: {
-  //   // page: number;
-  //   // limit: number;
-  //   // total: number;
-  //   // totalPages: number;
-  // };
 }
 export interface bookmarkInter {
   _id: number;
