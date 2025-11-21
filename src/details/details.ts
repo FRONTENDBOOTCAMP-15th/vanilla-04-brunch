@@ -1,6 +1,7 @@
 import { getAxios } from '../utils/axios';
 import dayjs from 'dayjs';
 import type { BookmarkPostInfo, PostAuthorInfo, PostInfo } from './type';
+import brunchSymbol from '../details/images/brunch-icon.png';
 
 const token = sessionStorage.getItem('accessToken');
 const userId = Number(sessionStorage.getItem('user-id'));
@@ -101,7 +102,7 @@ function detailRender(posts: PostInfo) {
   if (!posts.replies || (posts.replies?.length as number) === 0) {
     replyList.innerHTML = `
       <div class="comment-empty">
-        <img class="empty-img" src="./images/brunch-icon.png" alt="brunch 심볼" />
+        <img class="empty-img" src="${brunchSymbol}" alt="brunch 심볼" />
         <p class="empty-text">작성된 댓글이 없습니다.</p>
       </div>
     `;
