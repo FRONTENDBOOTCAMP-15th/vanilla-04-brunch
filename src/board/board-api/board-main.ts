@@ -6,7 +6,6 @@ const axiosInstance = getAxios();
 /**
  * 파일 업로드할 파일 배열
  */
-let uploadFiles: File[] = [];
 
 /**
  * 파일 업로드 함수

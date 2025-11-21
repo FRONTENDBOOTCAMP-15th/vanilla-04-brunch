@@ -9,7 +9,6 @@ let filesArray: File[] = [];
 /**
  * 서버에서 반환받은 업로드 파일 경로 배열
  */
-let filePaths: string[] = [];
 
 (() => {
   function titleWrite(value: string) {

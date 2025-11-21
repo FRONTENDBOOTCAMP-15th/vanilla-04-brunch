@@ -14,7 +14,7 @@ export async function authorList() {
     if (!token) {
       console.error('로그인이 안되어 있어 로그인화면으로 가세요');
       alert('로그인해주세요');
-      window.location.href = '../user/login/login.html';
+      window.location.href = './src/user/login/login.html';
       return []; // 빈 배열로 반환! (string 반환 X)
     }
 
