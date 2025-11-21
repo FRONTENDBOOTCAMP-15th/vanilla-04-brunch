@@ -8,7 +8,7 @@ const searchInputClearBtn = document.querySelector('.search-input-clear-btn') as
 const searchKeywords = document.querySelector('.search-keywords') as HTMLElement;
 const searchRecent = document.querySelector('.search-recent') as HTMLElement;
 const searchPosts = document.querySelector('.search-result-posts') as HTMLElement;
-const searchAuthors = document.querySelector('.search-result-authors') as HTMLElement;
+// const searchAuthors = document.querySelector('.search-result-authors') as HTMLElement;
 
 // 검색어 값이 변경될 때마다 클리어 버튼 활성/비활성화
 searchInput.addEventListener('input', () => {

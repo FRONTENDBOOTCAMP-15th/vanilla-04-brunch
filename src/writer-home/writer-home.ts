@@ -25,58 +25,60 @@ export interface WriterProfile {
   _id: number;
   name: string;
   job: string;
+  image: string;
   subscribers: number;
   following: number;
-  profileImageUrl: string;
+  // profileImageUrl: string;
   isSubscribed: boolean;
 }
 
 // 2. 목업데이터
 
-const mockProfileData: WriterProfile = {
-  _id: 2,
-  name: 'AB',
-  job: '기획자',
-  subscribers: 30,
-  following: 16,
-  profileImageUrl: '/images/ab-profile.png',
-  isSubscribed: true,
-};
+// const mockProfileData: WriterProfile = {
+//   _id: 2,
+//   name: 'AB',
+//   job: '기획자',
+//   subscribers: 30,
+//   following: 16,
+//   profileImageUrl: '/images/ab-profile.png',
+//   isSubscribed: true,
+// };
 
-const mockPostList: PostInfo[] = [
-  {
-    _id: 101,
-    type: '취준은 처음이라',
-    title: '[취업특강] 노션 포트폴리오 만들기',
-    extra: { subTitle: '부제 없음' },
-    image: '',
-    content: 'with 노슈니,슈크림 마을, 마포청년나루 | ...',
-    user: {
-      _id: 2,
-      name: 'AB',
-      image: '/images/ab-profile.png',
-    },
-    likes: 10,
-    createdAt: 'Jul 02. 2024',
-    updatedAt: 'Jul 02. 2024',
-  },
-  {
-    _id: 102,
-    type: '일상 기록',
-    title: '두 번째 글입니다',
-    extra: { subTitle: '부제 테스트' },
-    image: '',
-    content: '이것은 두 번째 글의 내용입니다...',
-    user: {
-      _id: 2,
-      name: 'AB',
-      image: '/images/ab-profile.png',
-    },
-    likes: 5,
-    createdAt: 'Jul 05. 2024',
-    updatedAt: 'Jul 05. 2024',
-  },
-];
+// const mockPostList: PostInfo[] = [
+//   {
+//     _id: 101,
+//     type: '취준은 처음이라',
+//     title: '[취업특강] 노션 포트폴리오 만들기',
+//     extra: { subTitle: '부제 없음' },
+//     image: '',
+//     content: 'with 노슈니,슈크림 마을, 마포청년나루 | ...',
+//     user: {
+//       _id: 2,
+//       name: 'AB',
+//       image: '/images/ab-profile.png',
+//     },
+//     likes: 10,
+//     createdAt: 'Jul 02. 2024',
+//     updatedAt: 'Jul 02. 2024',
+//   },
+//   {
+//     _id: 102,
+//     type: '일상 기록',
+//     title: '두 번째 글입니다',
+//     extra: { subTitle: '부제 테스트' },
+//     image: '',
+//     content: '이것은 두 번째 글의 내용입니다...',
+//     user: {
+//       _id: 2,
+//       name: 'AB',
+//       image: '/images/ab-profile.png',
+//     },
+//     likes: 5,
+//     createdAt: 'Jul 05. 2024',
+//     updatedAt: 'Jul 05. 2024',
+//   },
+// ];
+
 const axiosInstance = getAxios();
 
 // 프로필 정보
@@ -92,7 +94,7 @@ function renderProfile(profile: WriterProfile) {
   if (jobEl) jobEl.textContent = profile.job;
   if (subscriberEl) subscriberEl.textContent = String(profile.subscribers);
   if (interestEl) interestEl.textContent = String(profile.following);
-  if (imageEl) imageEl.src = profile.profileImageUrl;
+  if (imageEl) imageEl.src = profile.image;
   if (buttonEl) {
     buttonEl.textContent = profile.isSubscribed ? '✓ 구독중' : '구독하기';
   }

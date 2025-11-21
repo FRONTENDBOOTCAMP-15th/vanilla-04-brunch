@@ -16,7 +16,7 @@ async function postList() {
     if (!token) {
       console.error('로그인이 안되어 있어 로그인화면으로 가세요');
       alert('로그인해주세요');
-      return (window.location.href = `/src/sign-up/login.html`);
+      return (window.location.href = `/src/user/login/login.html`);
     }
 
     // const { data } = await axiosInstance.get<bookmarkinfoRes>(`/users/${_id}/${type}`);
