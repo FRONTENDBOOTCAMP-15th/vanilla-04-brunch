@@ -1,5 +1,5 @@
 import { getAxios } from '../../utils/axios';
-import type { bookmarkinfoRes, bookmarkInter, BookmarkInterRes, UserPostResponse } from './drawer-types';
+import type { bookmarkinfoRes, BookmarkInterRes, UserPostResponse } from './drawer-types';
 
 const axiosInstance = getAxios();
 
@@ -12,9 +12,9 @@ export async function authorList() {
     const userId = sessionStorage.getItem('user-id');
 
     if (!token) {
+      window.location.href = '/src/user/login/login.html';
       console.error('로그인이 안되어 있어 로그인화면으로 가세요');
       alert('로그인해주세요');
-      window.location.href = './src/user/login/login.html';
       return []; // 빈 배열로 반환! (string 반환 X)
     }
 
