@@ -1,7 +1,7 @@
 /**
  * PostWrite
  * 글 작성 시 사용하는 타입
- * **/
+ * */
 export interface PostWrite {
   ok: number;
   item: {

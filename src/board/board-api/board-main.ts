@@ -47,12 +47,6 @@ export async function uploadFile(filesArray: File[]): Promise<UploadResponse> {
 
 export async function createPost(title: string, content: string, extra: string, firstResponse: string[]): Promise<PostWrite | undefined> {
   console.log('게시글 생성 데이터:', title, content, extra, firstResponse);
-  console.log('=titles==', title);
-  console.log('contents==', content);
-
-  console.log('=extras==', extra);
-
-  console.log('=firstResponse ==', firstResponse);
 
   try {
     const postData = {

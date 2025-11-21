@@ -9,10 +9,27 @@ const axiosInstance = getAxios();
 //async 는 비동기 방식으로 기다리지 않고 뿌려주기
 async function postList() {
   try {
-    const type = 'post';
+    // const type = 'bookmarks';
+    const token = sessionStorage.getItem('accessToken');
+    console.log('accessToken-id', token);
 
-    const { data } = await axiosInstance.get<bookmarkinfoRes>(`/bookmarks/${type}`);
+    if (!token) {
+      console.error('로그인이 안되어 있어 로그인화면으로 가세요');
+      alert('로그인해주세요');
+      return (window.location.href = `/src/sign-up/login.html`);
+    }
+
+    // const { data } = await axiosInstance.get<bookmarkinfoRes>(`/users/${_id}/${type}`);
+    const { data } = await axiosInstance.get<bookmarkinfoRes>(`/users/{_id}/bookmarks`);
+    // const userId = userToken.data.item._id;
+    const userId2 = data;
+
+    console.log(userId2);
+    // const { data } = await axiosInstance.get<bookmarkinfoRes>(`/users/{_id}/bookmarks`);
     if (data.ok) {
+      console.log(data.ok);
+
+      console.log('북마크 목록:', data);
     }
   } catch (err) {
     console.error(err);
