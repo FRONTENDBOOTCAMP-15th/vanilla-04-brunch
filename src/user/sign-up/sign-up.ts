@@ -1,4 +1,4 @@
-import { getAxios } from '../utils/axios';
+import { getAxios } from '../../utils/axios';
 
 // 타입을 설정하는 인터페이스
 interface User {
@@ -156,7 +156,7 @@ async function onSignUp() {
     const users = response.data;
     console.log('회원가입 성공', users);
     alert('회원가입 성공');
-    location.href = './login.html';
+    location.href = '../login/login.html';
   } catch (err) {
     console.log(err);
     alert('별명, 이메일, 비밀번호를 다시 확인해주세요.');

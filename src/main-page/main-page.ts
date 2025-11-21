@@ -29,6 +29,7 @@ class MainPageComponent extends HTMLElement {
     }
     this.render();
     this.clickPost();
+    this.clickWriter();
   }
 
   // API 서버에세 응답을 받아오는 함수
@@ -86,15 +87,13 @@ class MainPageComponent extends HTMLElement {
       `;
     });
 
-    const wirterListHTML = this.users.slice(0, 10).map((user, index) => {
+    const wirterListHTML = this.users.slice(0, 15).map((user, index) => {
       const biography = user.extra?.biography.slice(0, 25);
       // user의 type이 seller인 경우에만 렌더링
       return `
-      
       ${
         user.type === 'seller'
-          ? `<div class="writer${index + 1}">
-          <a href="./src/writer-home/writer-home.html">
+          ? `<div class="writer${index + 1} writer-div" writer-id = "${user._id}">
             <figure class="writer">
               <img src="${user.image}" alt="" />
               <figcaption class="title">${user.name}</figcaption>
@@ -143,7 +142,9 @@ class MainPageComponent extends HTMLElement {
     const brunchList = this.querySelector('.brunch-list') as HTMLElement;
 
     // brunchList가 없는 경우 종료
-    if (!brunchList) return;
+    if (!brunchList) {
+      return;
+    }
 
     // 클릭했을 때 실행할 코드
     brunchList.addEventListener('click', (event) => {
@@ -157,7 +158,38 @@ class MainPageComponent extends HTMLElement {
         // post-id 속성에서 ID 가져오기
         // getAttribute: DOM 요소에서 속성 값을 가져오는 함수
         const postId = bookInfo.getAttribute('post-id');
+        // 해당 이벤트가 발생한 요소 클릭 시 경로 이동
         location.href = `/src/details/details.html?id=${postId}`;
+      }
+    });
+  }
+
+  // 작가 클릭 시 작가 홈으로 이동하는 함수
+  private clickWriter() {
+    // .writer-list 요소를 찾아서 선택
+    // as HTMLElement: 반환 값이 HTMLElement임을 명시하는 타입 단언
+    const writer = this.querySelector('.writer-list') as HTMLElement;
+
+    // writer가 없는 경우 종료
+    if (!writer) {
+      return;
+    }
+
+    // writer를 클릭했을 때 실행하는 코드
+    writer.addEventListener('click', (event) => {
+      // event가 발생한 요소
+      const target = event.target as HTMLElement;
+
+      // 발생한 요소에서 .writer-div를 찾기
+      const writerInfo = target.closest('.writer-div') as HTMLElement;
+
+      // writerInfo가 있으면(즉, .writer-div가 있으면)
+      if (writerInfo) {
+        // writer-id 속성에서 ID 가져오기
+        //getAttribute: DOM 요소에서 속성 값을 가져오는 함수
+        const writerId = writerInfo.getAttribute('writer-id');
+        // 해당 이벤트가 발생한 요소 클릭 시 경로 이동
+        location.href = `src/writer-home/writer-home.html?id=${writerId}`;
       }
     });
   }

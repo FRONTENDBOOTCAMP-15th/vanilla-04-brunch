@@ -15,7 +15,7 @@ refreschToken은 에러를 기준으로 작업한다.
 http only cookie = 서버쪽에서만 접근 가능(현재는 이 방식을 주로 사용)
 */
 
-import { getAxios } from '../utils/axios';
+import { getAxios } from '../../utils/axios';
 
 // interface User {
 //   email: string;
@@ -53,5 +53,5 @@ async function onLogin() {
 
 const signUpBtn = document.querySelector('.sign-up-btn');
 signUpBtn?.addEventListener('click', () => {
-  location.href = './sign-up.html';
+  location.href = '../sign-up/sign-up.html';
 });
