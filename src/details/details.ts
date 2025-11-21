@@ -220,35 +220,37 @@ async function getUserData(no: number) {
 }
 
 // 사용자 - 페이지 로드시 사용자 계정으로 댓글 입력칸 랜더링 함수
-function commentRender(user: PostAuthorInfo) {
+function noCommentRender() {
   const commentWriteBox = document.querySelector('.comment-write') as HTMLElement;
 
-  if (token === null) {
-    commentWriteBox.innerHTML = `
-      <a class="comment-write-noToken" href="/src/user/login/login.html">먼저 로그인하고 댓글을 입력해 보세요!</a>
-    `;
-  } else {
-    const writeImg = user.image ? `<img src="${user.image}" alt="${user.name}" />` : '';
-    commentWriteBox.innerHTML = `
-    <form class="comment-write-form">
-      <div class="comment-write-box">
-        <div class="comment-write-info">
-          <span class="writer-img">
-            ${writeImg}
-          </span>
-          <span class="writer-name">${user.name}</span>
-        </div>
-        <div class="comment-write-in">
-          <label class="sr-only" for="comment-write-input">댓글을 입력하세요.</label>
-          <textarea class="comment-write-input" name="comment-write-input" id="comment-write-input" placeholder="댓글을 입력하세요."></textarea>
-        </div>
-      </div>
-      <div class="comment-append">
-        <button class="comment-append-btn" type="button">등록</button>
-      </div>
-    </form>
+  commentWriteBox.innerHTML = `
+    <a class="comment-write-noToken" href="/src/user/login/login.html">먼저 로그인하고 댓글을 입력해 보세요!</a>
   `;
-  }
+}
+
+function yesCommentRender(user: PostAuthorInfo) {
+  const commentWriteBox = document.querySelector('.comment-write') as HTMLElement;
+
+  const writeImg = user.image ? `<img src="${user.image}" alt="${user.name}" />` : '';
+  commentWriteBox.innerHTML = `
+  <form class="comment-write-form">
+    <div class="comment-write-box">
+      <div class="comment-write-info">
+        <span class="writer-img">
+          ${writeImg}
+        </span>
+        <span class="writer-name">${user.name}</span>
+      </div>
+      <div class="comment-write-in">
+        <label class="sr-only" for="comment-write-input">댓글을 입력하세요.</label>
+        <textarea class="comment-write-input" name="comment-write-input" id="comment-write-input" placeholder="댓글을 입력하세요."></textarea>
+      </div>
+    </div>
+    <div class="comment-append">
+      <button class="comment-append-btn" type="button">등록</button>
+    </div>
+  </form>
+`;
 }
 
 // 사용자 - 사용자 데이터, 로그인시 전달 받을 값
@@ -257,8 +259,10 @@ if (userId) {
 
   // 사용자 - 데이터 받아오면, 댓글 입력칸 랜더링 실행
   if (responseUserData?.ok) {
-    commentRender(responseUserData.item);
+    yesCommentRender(responseUserData.item);
   }
+} else {
+  noCommentRender();
 }
 
 // 사용자 북마크 데이터 get 함수
