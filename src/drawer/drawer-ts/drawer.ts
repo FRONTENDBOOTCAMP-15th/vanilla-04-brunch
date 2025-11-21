@@ -1,130 +1,127 @@
 import { userBranch, authorList, interPost } from './../drawer-api/drawer-main';
 
 (() => {
-  const li = document.createElement('li');
-
+  // 페이지 로드 후 실행
   const init = () => {
-    async function renderUserList() {
-      const authors = await authorList();
-      // map + Object.fromEntries 사용해서 단일 객체로 변환
-      const result = Object.fromEntries(
-        authors?.map((author) => {
-          return [author.name, author.image];
-        }) || []
-      );
+    renderUserList();
+    favPost();
+    loadWriter();
+  };
 
-      const writerList = document.querySelector('.writer-list') as HTMLUListElement;
-
-      if (writerList && result) {
-        writerList.innerHTML = ''; //  초기화
-
-        for (const name in result) {
-          // console.log(name);
-          const image = result[name];
-
-          // li 생성
-          const li = document.createElement('li');
-          li.classList.add('writer-item');
-
-          // img 생성
-          const img = document.createElement('img');
-          img.src = image || '';
-          img.alt = name;
-
-          // span 생성 (작가 이름)
-          const span = document.createElement('span');
-          span.textContent = name;
-
-          // li에 img + span 추가
-          li.appendChild(img);
-          li.appendChild(span);
-
-          // li 클릭 시 페이지 이동
-          li.style.cursor = 'pointer'; // 클릭 가능 표시
-          li.addEventListener('click', () => {
-            window.location.href = '/src/writer-home/writer-home.html';
-          });
-
-          // ul에 li 추가
-          writerList.appendChild(li);
-        }
-      }
+  // 관심 작가
+  async function renderUserList() {
+    const token = sessionStorage.getItem('accessToken');
+    if (!token) {
+      alert('로그인해주세요');
+      window.location.href = '/src/user/login/login.html';
+      return;
     }
 
-    renderUserList();
-  };
-  // 관심글
-  async function favPost() {
-    const postIneter = await interPost();
+    const authors = await authorList();
 
-    const goodPost = postIneter?.map((Post) => {
-      return {
-        title: Post.title,
-        author: Post.author,
-        // postImage: Post.image,
-      };
-    });
-    console.log('goodPost', goodPost);
+    // authors 배열이 없으면 빈 객체로
+    const result = Object.fromEntries(authors?.map((author) => [author.name, author.image]) || []);
 
-    const interest = document.querySelector('.recent-list') as HTMLUListElement;
-    li.classList.add('post');
-    interest.appendChild(li);
+    const writerList = document.querySelector('.writer-list') as HTMLUListElement;
 
-    //   const img = document.createElement('img');
-    //   img.src = image || '';
-    //   img.alt = name;
-    // }
+    if (!writerList) return;
+    writerList.innerHTML = ''; // 초기화
+
+    for (const name in result) {
+      const image = result[name];
+
+      const li = document.createElement('li');
+      li.classList.add('writer-item');
+
+      const img = document.createElement('img');
+      img.src = image || '';
+      img.alt = name;
+
+      const span = document.createElement('span');
+      span.textContent = name;
+
+      li.appendChild(img);
+      li.appendChild(span);
+
+      li.style.cursor = 'pointer';
+      li.addEventListener('click', () => {
+        window.location.href = '/src/writer-home/writer-home.html';
+      });
+
+      writerList.appendChild(li);
+    }
   }
 
-  //
-  favPost();
-  // 여기까지
-  //내 브런치
+  // 관심 글'
+  async function favPost() {
+    const postInter = await interPost();
+
+    const goodPost =
+      postInter?.map((good) => ({
+        title: good.title,
+        author: good.author,
+        postImage: good.postImage,
+      })) || [];
+
+    const interest = document.querySelector('.favorite .recent-list') as HTMLUListElement;
+
+    interest.innerHTML = ''; // 초기화
+
+    goodPost.forEach((good) => {
+      const li = document.createElement('li');
+      li.classList.add('post');
+
+      li.innerHTML = `
+        <div class="card">
+          <img src="${good.postImage}" alt="${good.title}"  />
+          <div class="white-box">
+            <h3 class="title">${good.title}</h3>
+            <p class="post-author">${good.author}</p>
+          </div>
+        </div>
+      `;
+
+      interest.appendChild(li);
+    });
+  }
+
+  // 내 브런치
   async function loadWriter() {
     const posts = await userBranch();
-    // console.log('posts', posts);
-    const meBranch = posts?.map((posts) => {
-      return {
-        title: posts.title,
-        subTitle: posts.subTitle,
-        writeId: posts.id,
-      };
-    });
 
-    loadWriter();
+    const meBranch =
+      posts?.map((p) => ({
+        title: p.title,
+        subTitle: p.subTitle,
+        writeId: p.id,
+      })) || [];
 
     const writerBranch = document.querySelector('.content-total') as HTMLUListElement;
+    if (!writerBranch) return;
 
-    if (writerBranch && meBranch) {
-      writerBranch.innerHTML = ''; //  초기화
+    writerBranch.innerHTML = '';
 
-      for (const total of meBranch) {
-        const writeTitle = total.title;
-        const subTitle = total.subTitle;
-        const id = total.writeId;
+    meBranch.forEach((total) => {
+      const li = document.createElement('li');
+      li.classList.add('content');
 
-        const li = document.createElement('li');
-        li.classList.add('content');
+      const h3 = document.createElement('h3');
+      h3.textContent = total.title;
 
-        const h3 = document.createElement('h3');
-        h3.textContent = writeTitle;
+      const p = document.createElement('p');
+      p.textContent = total.subTitle;
 
-        const p = document.createElement('p');
-        p.textContent = subTitle;
+      li.appendChild(h3);
+      li.appendChild(p);
 
-        li.appendChild(h3);
-        li.appendChild(p);
+      li.style.cursor = 'pointer';
+      li.addEventListener('click', () => {
+        window.location.href = `/src/details/details.html?id=${total.writeId}`;
+      });
 
-        writerBranch.appendChild(li);
-        // li 클릭 시 페이지 이동
-
-        li.style.cursor = 'pointer'; // 클릭 가능 표시
-        li.addEventListener('click', () => {
-          window.location.href = `/src/details/details.html?id=${id}`;
-        });
-      }
-    }
+      writerBranch.appendChild(li);
+    });
   }
-  loadWriter();
+
   window.addEventListener('DOMContentLoaded', init);
 })();
