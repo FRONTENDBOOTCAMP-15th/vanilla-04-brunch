@@ -252,11 +252,13 @@ function commentRender(user: PostAuthorInfo) {
 }
 
 // 사용자 - 사용자 데이터, 로그인시 전달 받을 값
-const responseUserData = await getUserData(userId);
+if (userId) {
+  const responseUserData = await getUserData(userId);
 
-// 사용자 - 데이터 받아오면, 댓글 입력칸 랜더링 실행
-if (responseUserData?.ok) {
-  commentRender(responseUserData.item);
+  // 사용자 - 데이터 받아오면, 댓글 입력칸 랜더링 실행
+  if (responseUserData?.ok) {
+    commentRender(responseUserData.item);
+  }
 }
 
 // 사용자 북마크 데이터 get 함수
@@ -360,19 +362,11 @@ function bookmarkActiveRender() {
   const likeBtn = document.querySelector('.article-like-btn') as HTMLElement;
   const likeIcon = document.querySelector('.article-like-icon') as HTMLElement;
 
-  if (token === null) {
-    subsBtn.addEventListener('click', () => goLogin);
-    likeBtn.addEventListener('click', () => goLogin);
-
-    function goLogin() {
-      const goLogin = confirm('로그인이 필요합니다. 로그인 페이지로 이동할까요?');
-      if (goLogin) {
-        window.location.href = '/src/user/login/login.html';
-      }
-    }
-  } else {
-    // 구독 버튼
-    subsBtn.addEventListener('click', async () => {
+  // 구독 버튼
+  subsBtn.addEventListener('click', async () => {
+    if (token === null) {
+      goLogin();
+    } else {
       if (subsBtn.dataset.subscribe === 'true') {
         const responseGetBookmarkData = await getBookmark('user', responseAuthorData.item._id);
 
@@ -404,10 +398,14 @@ function bookmarkActiveRender() {
           }
         }
       }
-    });
+    }
+  });
 
-    // 좋아요 버튼
-    likeBtn.addEventListener('click', async () => {
+  // 좋아요 버튼
+  likeBtn.addEventListener('click', async () => {
+    if (token === null) {
+      goLogin();
+    } else {
       if (likeBtn.dataset.like === 'true') {
         const responseGetBookmarkData = await getBookmark('post', postId);
 
@@ -439,7 +437,14 @@ function bookmarkActiveRender() {
           }
         }
       }
-    });
+    }
+  });
+
+  function goLogin() {
+    const goLogin = confirm('로그인이 필요합니다. 로그인 페이지로 이동할까요?');
+    if (goLogin) {
+      window.location.href = '/src/user/login/login.html';
+    }
   }
 }
 
