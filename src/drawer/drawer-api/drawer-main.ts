@@ -1,35 +1,37 @@
 import { getAxios } from '../../utils/axios';
-import type { bookmarkinfoRes } from './drawer-types';
+import type { bookmarkinfoRes, bookmarkInter, BookmarkInterRes, UserPostResponse } from './drawer-types';
 
 const axiosInstance = getAxios();
 
-// 1.PostInfo 관심작가 -- post 에서 가져오기 관심 작가 가져오기
-
 //  관심 작가  조회 하기
 //async 는 비동기 방식으로 기다리지 않고 뿌려주기
-async function postList() {
+export async function authorList() {
   try {
     // const type = 'bookmarks';
     const token = sessionStorage.getItem('accessToken');
-    console.log('accessToken-id', token);
+    const userId = sessionStorage.getItem('user-id');
 
     if (!token) {
       console.error('로그인이 안되어 있어 로그인화면으로 가세요');
       alert('로그인해주세요');
-      return (window.location.href = `/src/sign-up/login.html`);
+      window.location.href = '../user/login/login.html';
+      return []; // 빈 배열로 반환! (string 반환 X)
     }
 
-    // const { data } = await axiosInstance.get<bookmarkinfoRes>(`/users/${_id}/${type}`);
-    const { data } = await axiosInstance.get<bookmarkinfoRes>(`/users/{_id}/bookmarks`);
-    // const userId = userToken.data.item._id;
-    const userId2 = data;
+    const { data } = await axiosInstance.get<bookmarkinfoRes>(`/users/${userId}/bookmarks`);
 
-    console.log(userId2);
-    // const { data } = await axiosInstance.get<bookmarkinfoRes>(`/users/{_id}/bookmarks`);
     if (data.ok) {
-      console.log(data.ok);
+      const authors = data.item.user ?? [];
 
-      console.log('북마크 목록:', data);
+      const result = authors.map((author) => {
+        // console.log('==map 안에서 배열을 순회중', author);
+        return {
+          name: author.user.name,
+          image: author.user.image,
+        };
+      });
+
+      return result;
     }
   } catch (err) {
     console.error(err);
@@ -69,7 +71,60 @@ async function userList() {
 // 3. 새 글 맨 앞에 추가
 
 //4.  제한 없이 저장
+//3. 관심글
 
-postList();
+export async function interPost() {
+  try {
+    console.log('hidddddddddd');
+    const mark = await axiosInstance.get<BookmarkInterRes>(`/bookmarks/post/`);
+    const likeBook = mark.data.item;
+    console.log(' dd', likeBook);
+
+    const iterBook = likeBook.map((book) => {
+      console.log(book);
+      return {
+        postId: book.post._id,
+        title: book.post.title,
+        author: book.post.user.name,
+        postImage: book.post.image,
+      };
+    });
+
+    console.log('iterBook', iterBook);
+
+    return iterBook;
+  } catch (error) {
+    console.error('에러입니다');
+  }
+}
+
+//4. 내 브런치
+export async function userBranch() {
+  try {
+    const myid = sessionStorage.getItem('user-id');
+    if (!myid) {
+      console.warn('user-id가 없습니다.');
+      return;
+    }
+
+    const mybrunch = await axiosInstance.get<UserPostResponse>(`/posts/users/${myid}`);
+    const brunchPost = mybrunch.data;
+
+    const postBrunchs = brunchPost.item.map((post) => {
+      return {
+        id: post._id,
+
+        title: post.title,
+        subTitle: post.extra?.subTitle ?? '',
+      };
+    });
+
+    return postBrunchs;
+  } catch (error) {
+    console.log(error);
+  }
+}
+interPost();
+authorList();
 userList();
-// StoryView();
+userBranch();
