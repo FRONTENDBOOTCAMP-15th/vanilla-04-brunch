@@ -32,7 +32,7 @@ class HeaderComponent extends HTMLElement {
           : `
           <div class="bundle">
             <a href="/src/search/search.html"><img class="search" src="${search}" alt="검색 아이콘" /></a>
-            <a class="start-btn" href="/src/sign-up/login.html">시작하기</a>
+            <a class="start-btn" href="/src/user/login/login.html">시작하기</a>
           </div>
           `
       }

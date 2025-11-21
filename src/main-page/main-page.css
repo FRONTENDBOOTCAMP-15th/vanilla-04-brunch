@@ -114,6 +114,9 @@
     width: 150px;
     height: 250px;
   }
+  .writer-div {
+    cursor: pointer;
+  }
 }
 
 .writer {
