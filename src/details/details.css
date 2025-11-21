@@ -94,6 +94,10 @@
   padding: 70px 20px 0;
 }
 
+.article-content {
+  word-break: break-all;
+}
+
 .article-content-p {
   margin-bottom: 30px;
   color: #1b1b1b;
@@ -279,10 +283,15 @@
     align-items: center;
 
     .writer-img {
+      overflow: hidden;
+      width: 18px;
+      height: 18px;
+      background-color: #00c6be;
+      border: 1px solid #eee;
+      border-radius: 50%;
+
       img {
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
+        width: 100%;
       }
     }
 
@@ -360,11 +369,18 @@
 .author-profile {
   margin-left: auto;
 
-  img {
+  a {
+    display: block;
+    overflow: hidden;
     width: 50px;
     height: 50px;
+    background-color: #00c6be;
     border: 1px solid #eee;
     border-radius: 50%;
+
+    img {
+      width: 100%;
+    }
   }
 }
 
@@ -441,20 +457,29 @@
   border-top: 1px solid #eee;
 }
 
-.article-like {
+.article-like-btn {
   display: flex;
   align-items: center;
   gap: 4px;
 
-  .article-like-btn {
-    .article-like-icon {
-      display: block;
-      width: 21px;
-      height: 21px;
-      background-image: url('./images/article-like-icon.png');
-      background-position: 0 0;
-    }
+  .article-like-icon {
+    display: block;
+    width: 21px;
+    height: 21px;
+    background-image: url('./images/article-like-icon.png');
+    background-position: 21px 0;
   }
+
+  .article-like-total {
+    position: relative;
+    top: -1px;
+  }
+}
+
+.article-like {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 
   .article-like-total {
     position: relative;
@@ -465,10 +490,12 @@
 }
 
 .article-share {
+  position: relative;
+  top: -1px;
   margin-left: 15px;
 }
 
-.article-comment-go {
+.comment-go-btn {
   display: flex;
   align-items: center;
   gap: 4px;
