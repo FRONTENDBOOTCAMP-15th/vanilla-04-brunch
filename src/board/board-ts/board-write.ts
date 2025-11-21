@@ -29,7 +29,7 @@ let filesArray: File[] = [];
   const fileUpload = document.querySelector('#btnFileUpload') as HTMLButtonElement;
   const inputFile = document.querySelector('input[type="file"]') as HTMLInputElement;
   const previewFile = document.getElementById('previewContainer') as HTMLElement;
-
+  const backclick = document.getElementById('backBtn') as HTMLButtonElement;
   const init = () => {
     // 글 입력
     inputTitle.addEventListener('keyup', (event: Event) => {
@@ -45,6 +45,11 @@ let filesArray: File[] = [];
     inputContent.addEventListener('keyup', (event: Event) => {
       const contentTarget = event.target as HTMLInputElement;
       contentWrite(contentTarget.value);
+    });
+    //취소 버튼 클릭시
+
+    backclick.addEventListener('click', () => {
+      window.history.back(); // 이전 페이지로 이동
     });
     // 저장 버튼 클릭 이벤트
     if (button) {
