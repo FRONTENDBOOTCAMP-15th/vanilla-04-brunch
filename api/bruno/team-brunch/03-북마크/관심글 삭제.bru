@@ -1,0 +1,22 @@
+meta {
+  name: 관심글 삭제
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{url}}/bookmarks/4
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "target_id": 2
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

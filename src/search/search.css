@@ -17,6 +17,7 @@ button {
   width: 100%;
   max-width: 360px;
   min-height: calc(100vh - 80px);
+  height: 100%;
   margin: 0 auto;
   background-color: #f8f8f8;
   box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.05);
@@ -55,6 +56,10 @@ button {
 
       &:focus {
         outline: 0;
+
+        &::placeholder {
+          font-size: 0;
+        }
       }
     }
   }
@@ -72,10 +77,13 @@ button {
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
+
+  &.show-btn {
+    display: block;
+  }
 }
 
 .search-tab-list {
-  /* display: flex; */
   display: none;
 
   .search-tab-item {
@@ -109,6 +117,10 @@ button {
       }
     }
   }
+
+  &.show-tab {
+    display: flex;
+  }
 }
 
 .search-title {
@@ -125,9 +137,12 @@ button {
 }
 
 .search-keywords {
-  /* display: none; */
   padding: 30px 20px;
   border-bottom: 1px solid #eee;
+
+  &.hide-keywords {
+    display: none;
+  }
 }
 
 .search-keywords-list {
@@ -153,8 +168,11 @@ button {
 }
 
 .search-recent {
-  /* display: none; */
   padding: 20px;
+
+  &.hide-recent {
+    display: none;
+  }
 }
 
 .search-recent-list {
@@ -164,19 +182,17 @@ button {
     align-items: center;
 
     a {
-      flex-grow: 1;
       color: #333;
       font-size: 15px;
       line-height: 36px;
     }
 
     .search-recent-delete-btn {
-      width: 9px;
-      height: 9px;
+      width: 20px;
+      height: 20px;
       background-image: url('./images/text-delete-icon.png');
       background-position: 50% 50%;
       background-repeat: no-repeat;
-      background-size: cover;
     }
   }
 }
@@ -184,6 +200,10 @@ button {
 .search-result-posts {
   display: none;
   padding: 20px;
+
+  &.show-posts {
+    display: block;
+  }
 }
 
 .search-posts-filter {
@@ -263,20 +283,23 @@ button {
       flex-shrink: 0;
       width: 60px;
       height: 60px;
+      overflow: hidden;
 
       img {
         width: 100%;
+        height: 100%;
       }
     }
 
     .search-posts-text {
-      flex-grow: 1;
       color: #959595;
       font-size: 12px;
       line-height: 1.6;
       display: -webkit-box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;
+      width: 100%;
+      height: calc(1.6em * 2);
       overflow: hidden;
       text-overflow: ellipsis;
     }
@@ -289,17 +312,22 @@ button {
     .search-posts-id {
       display: flex;
       align-items: center;
+      gap: 4px;
       color: #959595;
       font-size: 12px;
     }
   }
 }
 
-.search-result-author {
+.search-result-authors {
   display: none;
 
   .search-title {
     padding: 20px 20px 0;
+  }
+
+  &.show-authors {
+    display: block;
   }
 }
 

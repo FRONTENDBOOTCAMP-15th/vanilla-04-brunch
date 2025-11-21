@@ -3,10 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>발견</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/brunch.svg" />
+    <link rel="icon" type="image/svg" href="/brunch.svg" />
     <link rel="stylesheet" href="./search.css" />
     <link rel="stylesheet" href="../common/index.css" />
     <script type="module" src="../components/navi.ts"></script>
+    <script type="module" src="./search.ts"></script>
   </head>
   <body>
     <div class="search-container">
@@ -79,88 +82,11 @@
           </ul>
         </div>
 
-        <div class="search-posts-list">
-          <div class="search-posts-item">
-            <a href="">
-              <strong class="search-posts-title">딸의 정부청사 출장에 부모님이 동행하는 이유</strong>
-              <div class="flex-box">
-                <div class="text-box">
-                  <p class="search-posts-text">분이 많네요, 감사드립니다! 직장인(신입)으로 울릉도에서 근무하며 얻게 된 직장생활에 도움 되는 …</p>
-                  <span class="search-posts-date">Apr 19. 2024</span>
-                  <span class="search-posts-id">
-                    <img src="./images/by.png" alt="by" />
-                    은설 aka꿈꾸는 알
-                  </span>
-                </div>
-                <div class="img-box">
-                  <img src="./images/article-thumbnail-01.png" alt="딸의 정부청사 출장에 부모님이 동행하는 이유" />
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="search-posts-item">
-            <a href="">
-              <strong class="search-posts-title">덴마크의 '<span class="point">꿀</span> 하트' 쿠키, Honninghjerter</strong>
-              <div class="flex-box">
-                <div class="text-box">
-                  <p class="search-posts-text">분이 많네요, 감사드립니다! 직장인(신입)으로 울릉도에서 근무하며 얻게 된 직장생활에 도움 되는 …</p>
-                  <span class="search-posts-date">Apr 19. 2024</span>
-                  <span class="search-posts-id">
-                    <img src="./images/by.png" alt="by" />
-                    은설 aka꿈꾸는 알
-                  </span>
-                </div>
-                <div class="img-box">
-                  <img src="./images/article-thumbnail-02.png" alt="덴마크의 '꿀 하트' 쿠키, Honninghjerter" />
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="search-posts-item">
-            <a href="">
-              <strong class="search-posts-title">꿀 빠는 풍경</strong>
-              <div class="flex-box">
-                <div class="text-box">
-                  <p class="search-posts-text">분이 많네요, 감사드립니다! 직장인(신입)으로 울릉도에서 근무하며 얻게 된 직장생활에 도움 되는 …</p>
-                  <span class="search-posts-date">Apr 19. 2024</span>
-                  <span class="search-posts-id">
-                    <img src="./images/by.png" alt="by" />
-                    은설 aka꿈꾸는 알
-                  </span>
-                </div>
-                <div class="img-box">
-                  <img src="./images/article-thumbnail-03.png" alt="꿀 빠는 풍경" />
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="search-posts-item">
-            <a href="">
-              <strong class="search-posts-title">373) 사진만 봐도 꿀과 윤기가 좌르르, 구움과자 - 롱블랙 3월 28일, 문장채집 no. 373</strong>
-              <div class="flex-box">
-                <div class="text-box">
-                  <p class="search-posts-text">분이 많네요, 감사드립니다! 직장인(신입)으로 울릉도에서 근무하며 얻게 된 직장생활에 도움 되는 …</p>
-                  <span class="search-posts-date">Apr 19. 2024</span>
-                  <span class="search-posts-id">
-                    <img src="./images/by.png" alt="by" />
-                    은설 aka꿈꾸는 알
-                  </span>
-                </div>
-                <div class="img-box">
-                  <img
-                    src="./images/article-thumbnail-04.png"
-                    alt="373) 사진만 봐도 꿀과 윤기가 좌르르, 구움과자
-- 롱블랙 3월 28일, 문장채집 no. 373"
-                  />
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
+        <div class="search-posts-list"></div>
       </div>
       <!-- search-result-posts -->
 
-      <div class="search-result-author">
+      <div class="search-result-authors">
         <h3 class="search-title">작가 검색 결과 <span class="search-author-total">32</span>건</h3>
         <div class="search-author-list">
           <div class="search-author-item">
@@ -230,7 +156,7 @@
           </div>
         </div>
       </div>
-      <!-- search-result-author -->
+      <!-- search-result-authors -->
 
       <div class="search-empty">
         <img src="./images/brunch-icon.png" alt="brunch-icon" />

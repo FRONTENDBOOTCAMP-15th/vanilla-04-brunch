@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/common/index.css" />
+    <link rel="stylesheet" href="/src/user/sign-up/sign-up.css" />
     <script type="module" defer src="../sign-up/sign-up.ts"></script>
-    <link rel="stylesheet" href="../sign-up/sign-up.css" />
     <title>SignUp</title>
   </head>
   <body>
@@ -12,41 +13,43 @@
       <h3>회원가입</h3>
       <form class="sign-up-form" acction="" method="post">
         <div class="sign-up-input">
-          <div class="sign-up-information">
+          <div class="sign-up-information name-information">
             <label for="nickName">별명</label>
             <input type="text" id="nickName" name="input-nickname" required placeholder="별명" />
             <button type="button">중복확인</button>
           </div>
           <p class="error nickName-error hidden" id="error-1">별명은 두 글자 이상 입력해야 합니다.</p>
+          <p class="error2 duplicate-nickName-error hidden" id="error1-2">중복된 별명입니다.</p>
           <p class="success nickName-success hidden" id="success-1">사용할 수 있는 별명입니다.</p>
         </div>
         <div class="sign-up-input">
-          <div class="sign-up-information">
+          <div class="sign-up-information email-information">
             <label for="email">이메일</label>
             <input type="email" id="email" name="input-email" required placeholder="이메일" />
             <button type="button">중복확인</button>
           </div>
           <p class="error email-error hidden" id="error-2">아이디는 이메일 형식으로 입력해주세요.</p>
+          <p class="error2 duplicate-email-error hidden" id="error1-2">중복된 이메일입니다.</p>
           <p class="success email-success hidden" id="success-2">사용할 수 있는 이메일입니다.</p>
         </div>
 
         <div class="sign-up-input bg-icon">
           <div class="sign-up-information">
-            <input type="password" name="input-password" required placeholder="비밀번호" />
             <input class="password-checkbox" type="checkbox" id="password" name="password-state" />
             <label for="password">비밀번호</label>
+            <input type="password" name="input-password" id="password2" required placeholder="비밀번호" />
           </div>
-          <p class="error password-error hidden" id="error-3">비밀번호는 최소 8자리 이상 입력해야 합니다.</p>
-          <p class="success password-success hidden" id="success-3">사용할 수 있는 비밀번호입니다.</p>
+          <p class="error password-error hidden" id="error-3">대소문자, 숫자 조합 8자 이상이여야 합니다.</p>
+          <p class="success password-success hidden" id="success-3"></p>
         </div>
         <div class="sign-up-input bg-icon">
           <div class="sign-up-information">
-            <input type="password" name="input-password-check" required placeholder="비밀번호 확인" />
             <input class="password-checkbox" type="checkbox" id="passwordCheck" name="password-check-state" />
             <label for="passwordCheck">비밀번호 확인</label>
+            <input type="password" name="input-password-check" id="passwordCheck2" required placeholder="비밀번호 확인" />
           </div>
           <p class="error passwordCheck-error hidden" id="error-4">비밀번호가 일치하지 않습니다.</p>
-          <p class="success passwordCheck-success hidden" id="success-4">비밀번호가 일치합니다.</p>
+          <p class="success passwordCheck-success hidden" id="success-4"></p>
         </div>
         <div class="btn">
           <button type="button" class="sign-up-btn">회원가입</button>
