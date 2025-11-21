@@ -225,7 +225,7 @@ function commentRender(user: PostAuthorInfo) {
 
   if (token === null) {
     commentWriteBox.innerHTML = `
-      <a class="comment-write-noToken" href="/src/sign-up/login.html">먼저 로그인하고 댓글을 입력해 보세요!</a>
+      <a class="comment-write-noToken" href="/src/user/login/login.html">먼저 로그인하고 댓글을 입력해 보세요!</a>
     `;
   } else {
     const writeImg = user.image ? `<img src="${user.image}" alt="${user.name}" />` : '';
@@ -277,6 +277,7 @@ function bookmarkRender(bookmarkUser: BookmarkPostInfo) {
   const subsBtn = document.querySelector('.subscribe-btn') as HTMLElement;
   const subsText = document.querySelector('.subscribe-text') as HTMLElement;
   const likeIcon = document.querySelector('.article-like-icon') as HTMLElement;
+  const postLikeBtn = document.querySelector('.article-like-btn') as HTMLElement;
 
   if (token === null) {
     subsBtn.classList.remove('subscribe-check');
@@ -300,6 +301,9 @@ function bookmarkRender(bookmarkUser: BookmarkPostInfo) {
 
     if (likeResult) {
       likeIcon.style.backgroundPositionX = '0';
+      postLikeBtn.dataset.like = 'true';
+    } else {
+      postLikeBtn.dataset.like = 'false';
     }
   }
 }
@@ -325,11 +329,11 @@ async function postBookmark(type: string, no: number) {
 }
 
 // 북마크 목록 조회 함수
-async function getBookmark(no: number) {
+async function getBookmark(key: string, no: number) {
   const axios = getAxios();
 
   try {
-    const response = await axios.get(`/bookmarks/user/${no}`);
+    const response = await axios.get(`/bookmarks/${key}/${no}`);
     console.log(response.data);
     return response.data;
   } catch (err) {
@@ -354,6 +358,7 @@ function bookmarkActiveRender() {
   const subsBtn = document.querySelector('.subscribe-btn') as HTMLElement;
   const subsText = document.querySelector('.subscribe-text') as HTMLElement;
   const likeBtn = document.querySelector('.article-like-btn') as HTMLElement;
+  const likeIcon = document.querySelector('.article-like-icon') as HTMLElement;
 
   if (token === null) {
     subsBtn.addEventListener('click', () => goLogin);
@@ -362,13 +367,14 @@ function bookmarkActiveRender() {
     function goLogin() {
       const goLogin = confirm('로그인이 필요합니다. 로그인 페이지로 이동할까요?');
       if (goLogin) {
-        window.location.href = '/src/sign-up/login.html';
+        window.location.href = '/src/user/login/login.html';
       }
     }
   } else {
+    // 구독 버튼
     subsBtn.addEventListener('click', async () => {
       if (subsBtn.dataset.subscribe === 'true') {
-        const responseGetBookmarkData = await getBookmark(responseAuthorData.item._id);
+        const responseGetBookmarkData = await getBookmark('user', responseAuthorData.item._id);
 
         if (responseGetBookmarkData?.ok) {
           const responseDeleteBookmark = await deleteBookmark(responseGetBookmarkData.item._id);
@@ -399,6 +405,41 @@ function bookmarkActiveRender() {
         }
       }
     });
+
+    // 좋아요 버튼
+    likeBtn.addEventListener('click', async () => {
+      if (likeBtn.dataset.like === 'true') {
+        const responseGetBookmarkData = await getBookmark('post', postId);
+
+        if (responseGetBookmarkData?.ok) {
+          const responseDeleteBookmark = await deleteBookmark(responseGetBookmarkData.item._id);
+
+          const updatedLike = await getDetailData(postId);
+
+          if (updatedLike?.ok) {
+            detailRender(updatedLike.item);
+          }
+
+          if (responseDeleteBookmark?.ok) {
+            likeIcon.style.backgroundPositionX = '21px';
+            likeBtn.dataset.like = 'false';
+          }
+        }
+      } else {
+        const responsePostBookmark = await postBookmark('post', postId);
+
+        if (responsePostBookmark?.ok) {
+          likeIcon.style.backgroundPositionX = '0';
+          likeBtn.dataset.like = 'true';
+
+          const updatedLike = await getDetailData(postId);
+
+          if (updatedLike?.ok) {
+            detailRender(updatedLike.item);
+          }
+        }
+      }
+    });
   }
 }
 
@@ -422,6 +463,3 @@ function arrayPostInfo(key: string, value: number | string | string[]) {
 
   sessionStorage.setItem(key, JSON.stringify(postIdArr));
 }
-
-// 좋아요 버튼 기능
-// 상세페이지 로드시

@@ -77,7 +77,7 @@
 
   &.bg-icon {
     label {
-      background-image: url(/src/sign-up/img/uncheck.png);
+      background-image: url(../img/uncheck.png);
 
       /* 백그라운드 이미지 반복 여부 */
       background-repeat: no-repeat;
@@ -85,7 +85,7 @@
     }
 
     input:checked + label {
-      background-image: url(/src/sign-up/img/check.png);
+      background-image: url(../img/check.png);
     }
   }
 }
