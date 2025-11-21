@@ -225,7 +225,7 @@ function commentRender(user: PostAuthorInfo) {
 
   if (token === null) {
     commentWriteBox.innerHTML = `
-      <a class="comment-write-noToken" href="/src/sign-up/login.html">먼저 로그인하고 댓글을 입력해 보세요!</a>
+      <a class="comment-write-noToken" href="/src/user/login/login.html">먼저 로그인하고 댓글을 입력해 보세요!</a>
     `;
   } else {
     const writeImg = user.image ? `<img src="${user.image}" alt="${user.name}" />` : '';
@@ -367,7 +367,7 @@ function bookmarkActiveRender() {
     function goLogin() {
       const goLogin = confirm('로그인이 필요합니다. 로그인 페이지로 이동할까요?');
       if (goLogin) {
-        window.location.href = '/src/sign-up/login.html';
+        window.location.href = '/src/user/login/login.html';
       }
     }
   } else {
