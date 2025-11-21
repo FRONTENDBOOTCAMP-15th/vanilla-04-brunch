@@ -51,14 +51,14 @@
 
   &.bg-icon {
     label {
-      background: url(/src/sign-up/img/password_off.png) no-repeat;
+      background: url(/src/user/img/password_off.png) no-repeat;
       width: 24px;
       height: 24px;
     }
 
     #password:checked + label,
     #passwordCheck:checked + label {
-      background: url(/src/sign-up/img/password_on.png);
+      background: url(/src/user/img/password_on.png);
       width: 24px;
       height: 24px;
     }
