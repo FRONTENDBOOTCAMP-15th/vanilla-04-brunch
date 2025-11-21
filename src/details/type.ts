@@ -1,5 +1,6 @@
 export interface PostInfo {
   _id: number;
+  bookmarks: string;
   type: string;
   title: string;
   extra: {
@@ -41,18 +42,25 @@ export interface PostAuthorInfo {
 export type AuthorInfoBookmarkedBy = Pick<PostAuthorInfo, 'bookmarkedBy'>;
 
 export interface BookmarkPostInfo {
-  _id: number;
-  user_id: number;
-  user: {
-    email: string;
-    extra: {
-      biography: string;
-      job: string;
-      keyword: string[];
+  post: {
+    post: {
+      _id: number;
     };
-    image: string;
-    name: string;
-    type: string;
+  }[];
+  user: {
     _id: number;
-  };
+    user_id: number;
+    user: {
+      email: string;
+      extra: {
+        biography: string;
+        job: string;
+        keyword: string[];
+      };
+      image: string;
+      name: string;
+      type: string;
+      _id: number;
+    };
+  }[];
 }
