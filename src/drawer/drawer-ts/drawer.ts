@@ -34,7 +34,7 @@ import { userBranch, authorList, interPost } from './../drawer-api/drawer-main';
       li.classList.add('writer-item');
 
       const img = document.createElement('img');
-      img.src = image || '';
+      img.src = image || '/src/drawer/drawer-img/book.img.png';
       img.alt = name;
 
       const span = document.createElement('span');
@@ -70,10 +70,17 @@ import { userBranch, authorList, interPost } from './../drawer-api/drawer-main';
     goodPost.forEach((good) => {
       const li = document.createElement('li');
       li.classList.add('post');
+      let imageUrl = '';
+      //배열인 경우
+      if (Array.isArray(good.postImage)) {
+        imageUrl = good.postImage[0];
+      } else {
+        imageUrl = good.postImage;
+      }
 
       li.innerHTML = `
         <div class="card">
-          <img src="${good.postImage}" alt="${good.title}"  />
+          <img src="${imageUrl}" alt="${good.title}"  />
           <div class="white-box">
             <h3 class="title">${good.title}</h3>
             <p class="post-author">${good.author}</p>

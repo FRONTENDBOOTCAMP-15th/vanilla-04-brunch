@@ -71,12 +71,11 @@ export async function interPost() {
   try {
     const mark = await axiosInstance.get<BookmarkInterRes>(`/bookmarks/post/`);
     const likeBook = mark.data.item;
-    console.log(likeBook);
     const iterBook = likeBook.map((book) => ({
       postId: book.post._id,
       title: book.post.title,
       author: book.post.user.name,
-      postImage: book.post.image ?? [],
+      postImage: book.post.image === undefined ? '/src/drawer/drawer-img/book.img.png' : book.post.image,
     }));
 
     return iterBook;
