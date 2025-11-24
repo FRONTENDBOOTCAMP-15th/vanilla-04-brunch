@@ -52,7 +52,8 @@
 - 작가들이 쓴 게시글, 인기 작가 확인 가능
 - 게시글 및 작가 클릭 시 이동 기능
 <img width="250" height="550" alt="메인1" src="https://github.com/user-attachments/assets/c94fe9bd-fbfa-4b3c-98b7-639dda782c9c" />
-<img width="250" height="550" alt="메인2" src="https://github.com/user-attachments/assets/fc9db179-4bfa-4f70-a1c6-9d18e8960874" />
+<img width="250" height="550" alt="메인2" src="https://github.com/user-attachments/assets/9e5d45d5-8b14-469b-b2fb-a3664a8ad028" />
+
 
 ---
 
