@@ -194,12 +194,16 @@ function authorRender(authors: PostAuthorInfo) {
 
 // 작가(사용자) - 2번 쨰 게시물에 대한 데이터
 const postAuthorId = responseDetailData.item.user._id;
+
 if (postAuthorId === 0) {
   const goLogin = confirm('로그인 안된 상태에서 등록한 게시물은 삭제되었습니다. \n다른 게시물을 봐주시면 감사하겠습니다-!');
   if (goLogin) {
     window.location.href = '/';
+  } else {
+    window.location.href = '/';
   }
 }
+
 const responseAuthorData = await getAuthorData(postAuthorId);
 
 // 작가(사용자) - 데이터 받아오면, 작가(사용자) 정보 랜더링 실행
