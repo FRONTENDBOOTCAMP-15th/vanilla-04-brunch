@@ -88,7 +88,7 @@ class MainPageComponent extends HTMLElement {
       `;
     });
 
-    const wirterListHTML = this.users.slice(0, 20).map((user, index) => {
+    const wirterListHTML = this.users.slice(0, 32).map((user, index) => {
       const biography = user.extra?.biography.slice(0, 25);
       // user의 type이 seller인 경우에만 렌더링
       return `
