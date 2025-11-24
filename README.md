@@ -1,20 +1,17 @@
 # 🍧 아이쑤쿠림 : Brunch
 
-## 🎙️ 프로젝트 소개
+## 🎙️ 프로젝트 개요
 <div align="center">
 <img width="256" height="256" alt="image" src="https://github.com/user-attachments/assets/ff85fd8c-597b-4138-8128-1b8148bbda03" />
  
-**글이 작품이 되는 공간, 자유롭게 글을 쓰고 작품을 감상하는 브런치 클론 코딩 프로젝트**
+**글이 작품이 되는 공간, 자유롭게 글을 쓰고 작품을 감상하는 브런치** </br>
+이번 프로젝트를 통해 기본적인 CRUD를 구성하고 싶었으며 또한, 커뮤니티 플랫폼의 구조를 알아가기 위해 브런치를 선택하였습니다.
 
 #### [프로젝트 바로가기](https://vanilla-04.netlify.app/)
 </div>
 
 ## ⏱️ 프로젝트 기간
 > 2025.11.10 ~ 2025.11.24
-
-## ✅ 주제 선정 이유
-
- 저희 조는 기본적인 CRUD를 경험하고, 커뮤니티 플랫폼의 구조를 알아가기 위해 브런치를 선택했습니다.
 
 ## 👨‍👩‍👧‍👦 팀원 소개
 <div align="center">
@@ -44,22 +41,35 @@
 - 회원가입은 유효성 검사에 맞게 입력
 - 로그인 정보 저장 체크 박스 기능
 
+<img width="250" height="550" alt="회원가입" src="https://github.com/user-attachments/assets/bb407415-02f3-422a-829f-571d7c0f8ad4" />
+<img width="250" height="550" alt="회원가입_공백" src="https://github.com/user-attachments/assets/e87df603-c81e-4a44-8765-b6b577f93732" />
+<img width="250" height="550" alt="로그인_공백" src="https://github.com/user-attachments/assets/5f0f46f3-d27c-4eec-8ad8-7d3a5d7507c8" />
+<img width="250" height="550" alt="로그인" src="https://github.com/user-attachments/assets/ee8f0245-e063-4540-9ffb-954a7840fe4a" />
+
 ---
 
 ### 📄 메인 화면
 - 작가들이 쓴 게시글, 인기 작가 확인 가능
 - 게시글 및 작가 클릭 시 이동 기능
+<img width="250" height="550" alt="메인1" src="https://github.com/user-attachments/assets/c94fe9bd-fbfa-4b3c-98b7-639dda782c9c" />
+<img width="250" height="550" alt="메인2" src="https://github.com/user-attachments/assets/9e5d45d5-8b14-469b-b2fb-a3664a8ad028" />
+
 
 ---
 
 ### 🔎 발견
 - 검색어를 입력하여 게시글을 찾는 기능
+<img width="250" height="550" alt="발견_공백" src="https://github.com/user-attachments/assets/5740b5bd-b8d8-4269-9ea3-74d099309d92" />
+<img width="250" height="550" alt="발견" src="https://github.com/user-attachments/assets/469af89c-606c-45df-9e43-1cdc1c91f2de" />
+
 
 ---
 
 ### 📝 글쓰기
 - 제목, 소제목, 내용을 입력하여 게시글을 작성
 - 사진 첨부 기능
+<img width="250" height="550" alt="글쓰기_공백" src="https://github.com/user-attachments/assets/ef8b0586-2d29-434f-aeb9-89fd520912bd" />
+<img width="250" height="550" alt="글쓰기" src="https://github.com/user-attachments/assets/a49050ea-d50e-45c5-9c15-ec9621ba043b" />
 
 ---
 
@@ -67,18 +77,25 @@
 - 작성한 게시글의 제목, 작성자, 내용, 사진 등을 확인할 수 있는 기능
 - 댓글 기능
 - 작가 구독 기능 및 작가 홈 이동 기능
+<img width="250" height="550" alt="상세1" src="https://github.com/user-attachments/assets/7476945d-263f-4ac9-9003-b6e3efcc4f39" />
+<img width="250" height="550" alt="상세2" src="https://github.com/user-attachments/assets/e859652b-53e4-47db-a86e-021a7fab8947" />
 
 ---
 
 ### 📰 작가 홈
-- 작가의 프로필 사진, 정보, 작성 게시글을 볼 수 있는 기능
+- 작가의 프로필 사진, 정보, 게시글을 볼 수 있는 기능
+- 구독하기 버튼을 통해 구독하기 기능
 - 게시글 클릭 시 해당 게시글 이동하는 기능
+<img width="250" height="550" alt="작가홈1" src="https://github.com/user-attachments/assets/e33a683b-41c1-4724-837d-94327ce39404" />
+<img width="250" height="550" alt="작가홈2" src="https://github.com/user-attachments/assets/dfb66113-2ec8-4c3a-951d-957965088250" />
 
 ---
 
 ### 🗃️ 내서랍
 - 내가 구독한 작가, 최근 본 게시글, 좋아요 표시한 게시글을 확인하는 기능
 - 내가 작성한 게시글을 확인하고 이동하는 기능
+<img width="250" height="550" alt="내서랍1" src="https://github.com/user-attachments/assets/97f711c5-78b2-4a6d-bea6-1ffe58d6ac92" />
+<img width="250" height="550" alt="내서랍2" src="https://github.com/user-attachments/assets/517ee8b4-bc87-49ef-91bc-734f4eb3715c" />
 
 ---
 
