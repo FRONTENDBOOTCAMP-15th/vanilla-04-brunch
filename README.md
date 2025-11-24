@@ -5,7 +5,7 @@
 <img width="256" height="256" alt="image" src="https://github.com/user-attachments/assets/ff85fd8c-597b-4138-8128-1b8148bbda03" />
  
 **글이 작품이 되는 공간, 자유롭게 글을 쓰고 작품을 감상하는 브런치** </br>
-저희 조는 기본적인 CRUD를 구성하며 경험하고 싶었고 또한, 커뮤니티 플랫폼의 구조를 알아가기 위해 브런치를 선택하였습니다.
+저희 조는 기본적인 CRUD를 구성하고 싶었고 또한, 커뮤니티 플랫폼의 구조를 알아가기 위해 브런치를 선택하였습니다.
 
 #### [프로젝트 바로가기](https://vanilla-04.netlify.app/)
 </div>
