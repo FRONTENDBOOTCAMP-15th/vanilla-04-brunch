@@ -8,15 +8,8 @@ const axiosInstance = getAxios();
 export async function authorList() {
   try {
     // const type = 'bookmarks';
-    const token = sessionStorage.getItem('accessToken');
+    // const token = sessionStorage.getItem('accessToken');
     const userId = sessionStorage.getItem('user-id');
-
-    if (!token) {
-      window.location.href = '/src/user/login/login.html';
-      console.error('로그인이 안되어 있어 로그인화면으로 가세요');
-      alert('로그인해주세요');
-      return []; // 빈 배열로 반환! (string 반환 X)
-    }
 
     const { data } = await axiosInstance.get<bookmarkinfoRes>(`/users/${userId}/bookmarks`);
 
@@ -53,48 +46,21 @@ async function userList() {
  *
  */
 
-// function StoryView(view: RecentStory) {
-//   const key = 'RecentStory';
-//   // 1. LocalStorage에서 기존 데이터 가져오기
-//   // 값이 있으면 배열로 변환, 없으면 빈 배열
-//   const result = localStorage.getItem(key);
-//   const current: RecentStory[] = result ? JSON.parse(result) : [];
-//   console.log(current);
-//   // 2. 중복 제거: 이미 있으면 삭제
-//   for (let i = 0; i < current.length; i++) {
-//     if (current[i].postId === view.postId) {
-//       current.splice(i, 1);
-//       break; // 하나만 제거
-//     }
-//   }
-// }
-// 3. 새 글 맨 앞에 추가
-
-//4.  제한 없이 저장
-//3. 관심글
-
 export async function interPost() {
   try {
-    console.log('hidddddddddd');
     const mark = await axiosInstance.get<BookmarkInterRes>(`/bookmarks/post/`);
     const likeBook = mark.data.item;
-    console.log(' dd', likeBook);
-
-    const iterBook = likeBook.map((book) => {
-      console.log(book);
-      return {
-        postId: book.post._id,
-        title: book.post.title,
-        author: book.post.user.name,
-        postImage: book.post.image,
-      };
-    });
-
-    console.log('iterBook', iterBook);
+    const iterBook = likeBook.map((book) => ({
+      postId: book.post._id,
+      title: book.post.title,
+      author: book.post.user.name,
+      postImage: book.post.image === undefined ? '/src/drawer/drawer-img/book.img.png' : book.post.image,
+    }));
 
     return iterBook;
   } catch (error) {
-    console.error('에러입니다');
+    console.error('interPost 에러:', error);
+    return [];
   }
 }
 
@@ -124,6 +90,7 @@ export async function userBranch() {
     console.log(error);
   }
 }
+
 interPost();
 authorList();
 userList();
