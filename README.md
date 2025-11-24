@@ -57,7 +57,8 @@
 ### 🔎 발견
 - 검색어를 입력하여 게시글을 찾는 기능
 <img width="250" height="550" alt="발견_공백" src="https://github.com/user-attachments/assets/5740b5bd-b8d8-4269-9ea3-74d099309d92" />
-<img width="250" height="550" alt="발견" src="https://github.com/user-attachments/assets/5c9ee510-c4dd-4a98-8c70-949582aaedac" />
+<img width="250" height="550" alt="발견" src="https://github.com/user-attachments/assets/469af89c-606c-45df-9e43-1cdc1c91f2de" />
+
 
 ---
 
@@ -73,12 +74,17 @@
 - 작성한 게시글의 제목, 작성자, 내용, 사진 등을 확인할 수 있는 기능
 - 댓글 기능
 - 작가 구독 기능 및 작가 홈 이동 기능
+<img width="250" height="550" alt="상세1" src="https://github.com/user-attachments/assets/7476945d-263f-4ac9-9003-b6e3efcc4f39" />
+<img width="250" height="550" alt="상세2" src="https://github.com/user-attachments/assets/e859652b-53e4-47db-a86e-021a7fab8947" />
 
 ---
 
 ### 📰 작가 홈
-- 작가의 프로필 사진, 정보, 작성 게시글을 볼 수 있는 기능
+- 작가의 프로필 사진, 정보, 게시글을 볼 수 있는 기능
+- 구독하기 버튼을 통해 구독하기 기능
 - 게시글 클릭 시 해당 게시글 이동하는 기능
+<img width="250" height="550" alt="작가홈1" src="https://github.com/user-attachments/assets/e33a683b-41c1-4724-837d-94327ce39404" />
+<img width="250" height="550" alt="작가홈2" src="https://github.com/user-attachments/assets/dfb66113-2ec8-4c3a-951d-957965088250" />
 
 ---
 
