@@ -46,27 +46,6 @@ async function userList() {
  *
  */
 
-// function StoryView(view: RecentStory) {
-//   const key = 'RecentStory';
-//   // 1. LocalStorage에서 기존 데이터 가져오기
-//   // 값이 있으면 배열로 변환, 없으면 빈 배열
-//   const result = localStorage.getItem(key);
-//   const current: RecentStory[] = result ? JSON.parse(result) : [];
-//   console.log(current);
-//   // 2. 중복 제거: 이미 있으면 삭제
-//   for (let i = 0; i < current.length; i++) {
-//     if (current[i].postId === view.postId) {
-//       current.splice(i, 1);
-//       break; // 하나만 제거
-//     }
-//   }
-// }
-// 3. 새 글 맨 앞에 추가
-
-//4.  제한 없이 저장
-//3. 관심글
-// 3. 관심 글 조회
-
 export async function interPost() {
   try {
     const mark = await axiosInstance.get<BookmarkInterRes>(`/bookmarks/post/`);
@@ -111,14 +90,6 @@ export async function userBranch() {
     console.log(error);
   }
 }
-// export async function loadimage(url: string) {
-//   try {
-//     await axiosInstance.get(url);
-//     return url;
-//   } catch {
-//     return 'drawer-img/book.img.png';
-//   }
-// }
 
 interPost();
 authorList();
