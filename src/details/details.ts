@@ -1,6 +1,7 @@
 import { getAxios } from '../utils/axios';
 import dayjs from 'dayjs';
 import type { BookmarkPostInfo, PostAuthorInfo, PostInfo } from './type';
+import brunchSymbol from '../details/images/brunch-icon.png';
 
 const token = sessionStorage.getItem('accessToken');
 const userId = Number(sessionStorage.getItem('user-id'));
@@ -101,7 +102,7 @@ function detailRender(posts: PostInfo) {
   if (!posts.replies || (posts.replies?.length as number) === 0) {
     replyList.innerHTML = `
       <div class="comment-empty">
-        <img class="empty-img" src="./images/brunch-icon.png" alt="brunch 심볼" />
+        <img class="empty-img" src="${brunchSymbol}" alt="brunch 심볼" />
         <p class="empty-text">작성된 댓글이 없습니다.</p>
       </div>
     `;
@@ -193,12 +194,16 @@ function authorRender(authors: PostAuthorInfo) {
 
 // 작가(사용자) - 2번 쨰 게시물에 대한 데이터
 const postAuthorId = responseDetailData.item.user._id;
+
 if (postAuthorId === 0) {
   const goLogin = confirm('로그인 안된 상태에서 등록한 게시물은 삭제되었습니다. \n다른 게시물을 봐주시면 감사하겠습니다-!');
   if (goLogin) {
     window.location.href = '/';
+  } else {
+    window.location.href = '/';
   }
 }
+
 const responseAuthorData = await getAuthorData(postAuthorId);
 
 // 작가(사용자) - 데이터 받아오면, 작가(사용자) 정보 랜더링 실행

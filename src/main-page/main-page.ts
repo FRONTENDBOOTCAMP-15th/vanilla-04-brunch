@@ -1,6 +1,7 @@
 // axios 인스턴스와 type.ts 파일 가져오기
 import { getAxios } from '../utils/axios';
 import type { Posts, Users } from './type.ts';
+import bannerImg from '../main-page/img/banner.png';
 
 // 클래스 선언 및 HTMLElement를 상속 받음
 class MainPageComponent extends HTMLElement {
@@ -87,7 +88,7 @@ class MainPageComponent extends HTMLElement {
       `;
     });
 
-    const wirterListHTML = this.users.slice(0, 15).map((user, index) => {
+    const wirterListHTML = this.users.slice(0, 20).map((user, index) => {
       const biography = user.extra?.biography.slice(0, 25);
       // user의 type이 seller인 경우에만 렌더링
       return `
@@ -112,7 +113,7 @@ class MainPageComponent extends HTMLElement {
         <div class="banner">
           <p class="book-title">멈추어 버린 시간</p>
           <p class="book-writer">by 김수정</p>
-          <img src="../src/main-page/img/banner.png" alt="배너 사진" />
+          <img src="${bannerImg}" alt="배너 사진" />
         </div>
         
         <div class="brunch">
@@ -189,7 +190,7 @@ class MainPageComponent extends HTMLElement {
         //getAttribute: DOM 요소에서 속성 값을 가져오는 함수
         const writerId = writerInfo.getAttribute('writer-id');
         // 해당 이벤트가 발생한 요소 클릭 시 경로 이동
-        location.href = `src/writer-home/writer-home.html?id=${writerId}`;
+        location.href = `/src/writer-home/writer-home.html?id=${writerId}`;
       }
     });
   }
