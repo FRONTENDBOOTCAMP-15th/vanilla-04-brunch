@@ -44,6 +44,11 @@
 - 회원가입은 유효성 검사에 맞게 입력
 - 로그인 정보 저장 체크 박스 기능
 
+<img width="225" height="550" alt="회원가입" src="https://github.com/user-attachments/assets/bb407415-02f3-422a-829f-571d7c0f8ad4" />
+<img width="225" height="550" alt="회원가입_공백" src="https://github.com/user-attachments/assets/e87df603-c81e-4a44-8765-b6b577f93732" />
+<img width="225" height="550" alt="로그인_공백" src="https://github.com/user-attachments/assets/5f0f46f3-d27c-4eec-8ad8-7d3a5d7507c8" />
+<img width="225" height="550" alt="로그인" src="https://github.com/user-attachments/assets/ee8f0245-e063-4540-9ffb-954a7840fe4a" />
+
 ---
 
 ### 📄 메인 화면
@@ -54,12 +59,16 @@
 
 ### 🔎 발견
 - 검색어를 입력하여 게시글을 찾는 기능
+<img width="250" height="550" alt="발견_공백" src="https://github.com/user-attachments/assets/5740b5bd-b8d8-4269-9ea3-74d099309d92" />
+<img width="250" height="550" alt="발견" src="https://github.com/user-attachments/assets/5c9ee510-c4dd-4a98-8c70-949582aaedac" />
 
 ---
 
 ### 📝 글쓰기
 - 제목, 소제목, 내용을 입력하여 게시글을 작성
 - 사진 첨부 기능
+<img width="250" height="550" alt="글쓰기_공백" src="https://github.com/user-attachments/assets/ef8b0586-2d29-434f-aeb9-89fd520912bd" />
+<img width="250" height="550" alt="글쓰기" src="https://github.com/user-attachments/assets/a49050ea-d50e-45c5-9c15-ec9621ba043b" />
 
 ---
 
