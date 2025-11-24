@@ -41,16 +41,18 @@
 - 회원가입은 유효성 검사에 맞게 입력
 - 로그인 정보 저장 체크 박스 기능
 
-<img width="225" height="550" alt="회원가입" src="https://github.com/user-attachments/assets/bb407415-02f3-422a-829f-571d7c0f8ad4" />
-<img width="225" height="550" alt="회원가입_공백" src="https://github.com/user-attachments/assets/e87df603-c81e-4a44-8765-b6b577f93732" />
-<img width="225" height="550" alt="로그인_공백" src="https://github.com/user-attachments/assets/5f0f46f3-d27c-4eec-8ad8-7d3a5d7507c8" />
-<img width="225" height="550" alt="로그인" src="https://github.com/user-attachments/assets/ee8f0245-e063-4540-9ffb-954a7840fe4a" />
+<img width="250" height="550" alt="회원가입" src="https://github.com/user-attachments/assets/bb407415-02f3-422a-829f-571d7c0f8ad4" />
+<img width="250" height="550" alt="회원가입_공백" src="https://github.com/user-attachments/assets/e87df603-c81e-4a44-8765-b6b577f93732" />
+<img width="250" height="550" alt="로그인_공백" src="https://github.com/user-attachments/assets/5f0f46f3-d27c-4eec-8ad8-7d3a5d7507c8" />
+<img width="250" height="550" alt="로그인" src="https://github.com/user-attachments/assets/ee8f0245-e063-4540-9ffb-954a7840fe4a" />
 
 ---
 
 ### 📄 메인 화면
 - 작가들이 쓴 게시글, 인기 작가 확인 가능
 - 게시글 및 작가 클릭 시 이동 기능
+<img width="250" height="550" alt="메인1" src="https://github.com/user-attachments/assets/c94fe9bd-fbfa-4b3c-98b7-639dda782c9c" />
+<img width="250" height="550" alt="메인2" src="https://github.com/user-attachments/assets/fc9db179-4bfa-4f70-a1c6-9d18e8960874" />
 
 ---
 
@@ -91,6 +93,8 @@
 ### 🗃️ 내서랍
 - 내가 구독한 작가, 최근 본 게시글, 좋아요 표시한 게시글을 확인하는 기능
 - 내가 작성한 게시글을 확인하고 이동하는 기능
+<img width="250" height="550" alt="내서랍1" src="https://github.com/user-attachments/assets/97f711c5-78b2-4a6d-bea6-1ffe58d6ac92" />
+<img width="250" height="550" alt="내서랍2" src="https://github.com/user-attachments/assets/517ee8b4-bc87-49ef-91bc-734f4eb3715c" />
 
 ---
 
