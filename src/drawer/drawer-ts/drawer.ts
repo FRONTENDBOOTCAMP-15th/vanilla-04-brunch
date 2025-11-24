@@ -5,6 +5,7 @@ import { userBranch, authorList, interPost } from './../drawer-api/drawer-main';
   const init = () => {
     renderUserList();
     favPost();
+    recentPost();
     loadWriter();
   };
 
@@ -34,7 +35,7 @@ import { userBranch, authorList, interPost } from './../drawer-api/drawer-main';
       li.classList.add('writer-item');
 
       const img = document.createElement('img');
-      img.src = image || '';
+      img.src = image || '/src/drawer/drawer-img/book.img.png';
       img.alt = name;
 
       const span = document.createElement('span');
@@ -51,13 +52,28 @@ import { userBranch, authorList, interPost } from './../drawer-api/drawer-main';
       writerList.appendChild(li);
     }
   }
+  // 최근 본글
+  async function recentPost() {
+    const recentList = document.querySelector('.recent .recent-list') as HTMLUListElement;
+    if (!recentList) {
+      return;
+    }
+    // recentList.innerHTML = '';
+    const postIds: number[] = JSON.parse(sessionStorage.getItem('postId') || '[]');
+    const postTitles: string[] = JSON.parse(sessionStorage.getItem('postTitle') || '[]');
+    const postAuthors: string[] = JSON.parse(sessionStorage.getItem('postAuthorName') || '[]');
+    const postImgs: (string | string[])[] = JSON.parse(sessionStorage.getItem('postImg') || '[]');
 
+    console.log(postTitles, postImgs, postAuthors, postIds);
+  }
   // 관심 글'
   async function favPost() {
     const postInter = await interPost();
 
+    console.log(postInter);
     const goodPost =
       postInter?.map((good) => ({
+        id: good.postId,
         title: good.title,
         author: good.author,
         postImage: good.postImage,
@@ -70,18 +86,47 @@ import { userBranch, authorList, interPost } from './../drawer-api/drawer-main';
     goodPost.forEach((good) => {
       const li = document.createElement('li');
       li.classList.add('post');
+      let imageUrl = '';
+      li.dataset.id = String(good.id);
+      //배열인 경우
+      if (Array.isArray(good.postImage)) {
+        imageUrl = good.postImage[0];
+      } else {
+        imageUrl = good.postImage;
+      }
 
       li.innerHTML = `
         <div class="card">
-          <img src="${good.postImage}" alt="${good.title}"  />
+          <img src="${imageUrl}" alt="${good.title}"  />
           <div class="white-box">
             <h3 class="title">${good.title}</h3>
             <p class="post-author">${good.author}</p>
           </div>
         </div>
+          <div class="card-text">
+      <p>${good.title}</p>
+      <span>by ${good.author}</span>
+    </div>
       `;
 
       interest.appendChild(li);
+    });
+    // 카드클릭시  해당 id 를 가져옴
+    interest.addEventListener('click', (event) => {
+      const target = event.target as HTMLElement;
+      const li = target.closest('li.post') as HTMLLIElement;
+
+      if (!li) {
+        return;
+      }
+
+      const postId = li.dataset.id;
+      console.log('선택한 postId:', postId);
+
+      if (postId) {
+        // id를 URL에 붙여서 상세페이지 이동
+        window.location.href = `/src/details/details.html?id=${postId}`;
+      }
     });
   }
 
